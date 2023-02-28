@@ -1,0 +1,221 @@
+
+
+button{
+   display: block; 
+  background: none;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+}
+.skewBackGround::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: skewX(var(--skewX, -16deg));
+    background-color: var(--bg, var(--marigold));
+    z-index: -1;
+  }
+
+  .skewBackGround {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .hero-container {
+     padding-inline: 15px; 
+    }
+  
+  
+  
+  .heroContent-title
+   {
+    color: var(--white);
+    font-family: var(--ff-oxanium);
+    line-height: 1;
+    font-size: var(--fs-2);
+    letter-spacing: -3px;
+  }
+   .hero-btn {
+    margin-inline: auto;
+    color: var(--eerie-black-1);
+    font-size: var(--fs-8);
+    text-transform: uppercase;
+    font-weight: var(--fw-700);
+    min-height: 55px;
+    padding-inline: 35px;
+  }
+  
+  .hero-btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: calc(100% + 6px);
+    width: 5px;
+    transform: skewX(-16deg) translateX(var(--translateX, 0));
+    background-color: var(--marigold);
+    transition: 0.5s;
+  }
+
+  .hero-btn-1 {
+      color: var(--eerie-black-1);
+    font-size: var(--fs-8);
+    text-transform: uppercase;
+    font-weight: var(--fw-700);
+    min-height: 55px;
+    padding-inline: 35px;
+  }
+  .hero-btn-1::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: calc(100% + 0px);
+    width: 5px;
+    transform: skewX(-16deg) translateX(var(--translateX, 0));
+    background-color: var(--marigold);
+    transition: 0.5;
+  }
+  .heroPicture {
+     width: 103%;
+     height: 75vh; 
+    } 
+
+    
+  
+  .heroPicture-banner { 
+    display: none; 
+  }
+  
+  .hero-section {
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    min-height: 85vh;
+    display: grid;
+    align-items: center;
+  }
+  
+  .heroContent-subtitle {
+    color: var(--marigold);
+    font-size: var(--fs-2);
+    font-weight: var(--fw-700);
+    text-transform: uppercase;
+    /* width: fit-content; */
+  }
+
+  
+  
+  .heroContent-title { margin-block: 15px 12px; 
+    font-family: 'Nunito Sans', sans-serif;
+    font-family: 'Roboto Slab', serif;
+  }
+  
+  .heroContent-text {
+    color: var(--light-gray-2);
+    margin-block-end: 45px;
+  }
+ 
+  
+  
+  @media (min-width: 576px) {
+  
+  
+    .hero-container {
+      max-width: 540px;
+      width: 100%;
+      margin-inline: auto;
+    }
+  
+}
+
+  
+  @media (min-width: 768px) {
+
+  
+    .hero-container {
+       max-width: 720px;
+       }
+  
+  
+    .heroContent-text {
+      max-width: 60ch;
+      margin-inline: auto;
+    }
+}
+ 
+  
+  @media (min-width: 992px) {
+  
+    .hero-container { 
+      max-width: 960px; 
+    }
+  
+    :is( .hero-section) .hero-container { 
+      max-width: unset; 
+    }
+  
+    .hero-section { 
+      text-align: left; 
+    }
+  
+    .heroPicture-banner { 
+      display: block; }
+
+  
+    .hero-section .hero-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+    }
+  
+    .hero-btn { 
+      margin-inline: 0;
+     }
+}
+
+@media (max-width: 992px) {
+
+  .hero-btn-1{
+    margin-inline: auto;
+  }
+}
+  @media (min-width: 1200px) {
+
+    .hero-container,
+    :is(.hero-section) .hero-container { 
+      max-width: 1175px;
+     }
+ 
+    .hero-section .hero-container {
+       grid-template-columns: 1fr 1.125fr;
+       }
+  
+       .heroContent-subtitle {
+        --b: 0.1em;   /* the thickness of the line */
+        /* --c: #1095c1; the color */
+        
+        color: #ff000000;
+        /* padding-block: var(--b); */
+        background: 
+          linear-gradient(var(--marigold) 50%,#9598cd 0) 0% calc(100% - var(--_p,0%))/100% 200%,
+          linear-gradient(var(--marigold) 0 0) 0% var(--_p,0%)/var(--_p,0%) var(--b) no-repeat;
+        -webkit-background-clip: text,padding-box;
+                background-clip: text,padding-box;
+        transition: .3s var(--_s,0s) linear,background-size .3s calc(.3s - var(--_s,0s));
+      }
+      .active {
+        --_p: 100%;
+        --_s: .3s;
+      }
+      .heroContent-subtitle:hover{
+        --_p: 100%;
+        --_s: .3s;
+      }
+
+      .heroContent-subtitle{
+        width: fit-content;
+      }
+}
