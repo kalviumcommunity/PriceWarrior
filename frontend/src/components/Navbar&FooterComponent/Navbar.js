@@ -5,6 +5,8 @@ import PersonIcon from '@mui/icons-material/Person';
 import logo from '../asseets/logo.png'
 import flag from '../asseets/indian2.png'
 
+import { Link } from 'react-router-dom';
+
 
 
 
@@ -41,7 +43,7 @@ const handleHoverLeave =()=>{
 <div className="icons">
   <img src={flag} width='50'/>
             <div id="search-btn" onClick={handleSearch}><FaSearch/></div>
-            <Button variant="contained" startIcon={<PersonIcon/>} color='success' size='medium' style={{fontSize:'1.5rem', background: '#FFB800',
+            <Button variant="contained" startIcon={<PersonIcon/>} color='success' size='small' style={{fontSize:'1.5rem', background: '#FFB800',
               color:'black',display:'flex', alignItems:'center'}}>Login</Button>
             
         </div>
@@ -53,10 +55,10 @@ const handleHoverLeave =()=>{
           <div className="header-2">
         <nav className="navbar">
           <div >
-            <a href="#home" id='navbar-links' onMouseEnter={handleHoverEnter} onMouseLeave={handleHoverLeave}>Home</a>
+            <Link to={'/'}  id='navbar-links' onMouseEnter={handleHoverEnter} onMouseLeave={handleHoverLeave}>Home</Link>
             </div>
             <div >
-            <a href="#home" className='navbar-links'>Games</a>
+            <Link to={'/games'} className='navbar-links'>Games</Link>
             </div>
             <div >
             <a href="#home" className='navbar-links'>Featured</a>

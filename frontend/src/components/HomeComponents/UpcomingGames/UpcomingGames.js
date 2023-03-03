@@ -1,8 +1,28 @@
 import React from 'react'
 import '../Home.css'
+import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import img1 from '../../asseets/featured-game-icon.png'
 
 import data from './data'
 function UpcomingGames() {
+
+  const [upcomingdata, setUpcomingData] = useState([])
+
+  useEffect(() => console.log(upcomingdata), [upcomingdata])
+
+  useEffect(() => {
+    fetch('http://localhost:4000/gameGet').then(res=>res.json()).then(data=>{
+      
+    
+    setUpcomingData(data)
+      
+    })
+
+    // console.log(adata)cd frontend
+  
+    
+  }, [])
   return (
     <div id='upcoming-game-container'>
       
@@ -15,24 +35,22 @@ function UpcomingGames() {
           </h2>
 
           <ul class="ul-scrollbar">
-{data.map((item)=>{
+{upcomingdata.filter(item => item.isUpcoming).map((item)=>{
   return(
+    
+    
  <li class="scrollbar-item">
+  <Link to={`/games/${item._id}`}>
  <div class="upcoming-game-card">
 
    <figure class="card-banner img-holder" style={{width: '450', height: '600'}}>
-     <img src={item.image} width="450" height="600" loading="lazy"
+     <img src={item.homeImage} width="450" height="600" loading="lazy"
        alt="Just for Gamers" class="img-cover"/>
    </figure>
 
    <div class="card-content">
 
-     <h3 class="h3">
-       <a href="#" class="card-title">
-         {item.name} <span class="span">{item.nameYellow}</span>
-         
-       </a>
-     </h3>
+     
 
     
 
@@ -40,12 +58,12 @@ function UpcomingGames() {
 
    <div class="card-content-overlay">
 
-     <img src={item.img} width="36" height="60"  color='black' alt=""
+     <img src={img1} width="36" height="60"  color='black' alt=""
        class="card-icon"/>
 
      <h3 class="h3">
        <a href="#" class="card-title">
-         {item.name} <span class="span">{item.nameYellow}</span>
+         {item.name} <span class="span">{item.lastName}</span>
        </a>
      </h3>
 
@@ -53,7 +71,9 @@ function UpcomingGames() {
    </div>
 
  </div>
-</li>)
+ </Link>
+</li>
+)
 })
   
 }

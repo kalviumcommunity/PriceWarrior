@@ -2,7 +2,7 @@ import '../game.css';
 import img from '../../asseets/rdr2.jpg'
 import {LoremIpsum} from 'react-lorem-ipsum';
 
-function Game() {
+function Game(props) {
   return (
     <div>
 
@@ -12,21 +12,23 @@ function Game() {
      <div className='outer-div'>
       <div className='game-detail'>
         <div className='game-img-div'>
-    <img className='game-img' src={img}/>
+    <img className='game-img' src={props.img}/>
         </div>
         <div className='game-specific-details'>
           
-    <h2 className='h2 game-detail-name'  style={{fontFamily:'auto', marginBottom:'1rem'}}>Red Dead Redemption <span className='span'>II</span></h2>
+    <h2 className='h2 game-detail-name'  style={{fontFamily:'auto', marginBottom:'1rem'}}>{props.name}<span className='span'>{props.lastName}</span></h2>
     <div className='edition'>
     <h3 className='h3' style={{fontFamily:'auto'}}>Editions:</h3>
-    <div>
-      <h5 className='tags'>Standard</h5>
-      <h5 className='tags'>Deluxe</h5>
+    <div style={{flexWrap:'wrap'}}>
+    {props.edition.map((e)=>{
+     return(
+     <h5 className='tags'>{e.editionName}</h5>
+     )})}
     </div>
 
     </div>
     <p>Lorem ipsum odor amet, consectetuer adipiscing elit. Ligula consequat vehicula vehicula nullam torquent felis et.</p>
-    <h2>4.2⭐</h2>
+    <h2>{props.rating}⭐</h2>
     
         </div>
       </div>
