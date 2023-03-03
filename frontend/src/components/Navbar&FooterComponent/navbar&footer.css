@@ -35,10 +35,13 @@ html{
 
 
 
-
+.related-link-heading{
+    text-align: center;
+}
 
 
 .icons {
+    flex-wrap: wrap;
     display: flex;
     align-items: center;
     margin-left: 3rem;

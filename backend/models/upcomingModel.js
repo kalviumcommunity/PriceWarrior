@@ -1,0 +1,169 @@
+const mongoose = require('mongoose')
+
+const Schema = mongoose.Schema
+
+const upcomingGamesSchema = new Schema({
+  name: {
+    type: String,
+    required: true
+    
+  },
+  lastName:{
+        type:String,
+        required: true
+
+  },
+
+  homeGenre: {
+    type: String,
+    required: true
+  }, 
+
+  homeImage: {
+    type: String,
+    required: true
+  },
+  detailImage:{
+    type:String,
+    required: true
+},
+
+crouselImage:[
+  {
+    link:{
+      type:String
+    }
+  }
+]
+
+,
+  editions:[
+    {
+        editionName:{
+            type:String
+        }
+    }
+   
+  ],
+
+  current:[
+    {
+        quantity:{
+            type:String
+        },
+        rate:{
+            type:String
+        }
+    }
+  ],
+
+  history:[
+    {
+      quantity:{
+        type:String
+    },
+    rate:{
+        type:String
+    }
+    }
+  ],
+
+  rating:{
+        type:Number,
+        required:true
+  },
+  trailer:{
+    type:String,
+    required:true
+  },
+
+  description:{
+    type:String,
+    required:true
+  },
+
+  relatedLinks:[
+    {
+        mssg:{
+            type:String,
+        },
+        link:{
+            type:String
+        }
+    }
+  ],
+
+  minimumRequirements:[
+            
+    {
+        specs:{
+            type:String
+        },
+        info:{
+            type:String
+        },
+    },
+
+  ],
+
+  recommendedRequirements:[
+            
+    {
+        specs:{
+            type:String
+        },
+        info:{
+            type:String
+        },
+    },
+
+  ],
+
+  developer:{
+    type:String,
+    required:true
+  },
+  publisher:{
+    type:String,
+    required:true
+  },
+  releaseDate:{
+    type:String,
+    required:true
+  },
+
+  genres:[
+    {
+        genre:{
+            type:String
+        }
+    }
+],
+
+tags:[
+    {
+        tag:{
+            type:String
+        }
+    }
+
+],
+prices:[
+    {
+        name:{
+            type:String
+        },
+        site:{
+            type:String
+        },
+        
+        price:{
+            type:String
+        }
+    }
+],
+
+  
+})
+
+module.exports = mongoose.model('UpcomingGame', upcomingGamesSchema)
