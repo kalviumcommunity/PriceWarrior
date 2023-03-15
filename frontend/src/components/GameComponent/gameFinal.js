@@ -11,7 +11,8 @@ function GameFinal() {
   const {id}=useParams()
   console.log(id)
   const [gameData, setGameData] = useState()
-  useEffect(() => console.log(gameData), [gameData])
+  const [selectedButton, setSelectedButton] = useState('Prices')
+  // useEffect(() => console.log(gameData), [gameData])
 
   useEffect(() => {
     fetch(`http://localhost:4000/gameGet/${id}`).then(res=>res.json()).then(data=>{
@@ -35,38 +36,47 @@ function GameFinal() {
         img={gameData.detailImage}
         edition={gameData.editions}
         rating={gameData.rating}
+        currentMin={gameData.currentMin}
+        currentAvg={gameData.currentAvg}
+        currentMax={gameData.currentMax}
+        historyMin={gameData.historyMin}
+        historyAvg={gameData.historyAvg}
+        historyMax={gameData.historyMax}
+        carouselImage = {gameData.crouselImage}
         />
 
 
 
-        <Nav/>
+        <Nav setSelectedButton={setSelectedButton} />
 
 
+      {selectedButton === 'Prices' && (
+          <Prices
+          img={gameData.detailImage}
+          releaseDate={gameData.releaseDate}
+          developer={gameData.developer}
+          publisher={gameData.publisher}
+          genres={gameData.genres}
+          tags={gameData.tags}
+          prices={gameData.prices}
+          carouselImage = {gameData.crouselImage}/>
+      )}
 
-        {/* <Prices
-         img={gameData.detailImage}
-        releaseDate={gameData.releaseDate}
-        developer={gameData.developer}
-        publisher={gameData.publisher}
-        genres={gameData.genres}
-        tags={gameData.tags}
-        prices={gameData.prices}/>
-
-
-
-        <About 
-        description={gameData.description}
-        relatedLinks={gameData.relatedLinks}
-        minimumRequirements = {gameData.minimumRequirements}
-        recommendedRequirements = {gameData.recommendedRequirements}
-        trailer={gameData.trailer}
-        releaseDate={gameData.releaseDate}
-        developer={gameData.developer}
-        publisher={gameData.publisher}
-        genres={gameData.genres}
-        tags={gameData.tags}
-
-        /> */}
+      {selectedButton === 'About' && (
+          <About 
+          description={gameData.description}
+          relatedLinks={gameData.relatedLinks}
+          minimumRequirements = {gameData.minimumRequirements}
+          recommendedRequirements = {gameData.recommendedRequirements}
+          trailer={gameData.trailer}
+          releaseDate={gameData.releaseDate}
+          developer={gameData.developer}
+          publisher={gameData.publisher}
+          genres={gameData.genres}
+          tags={gameData.tags}
+  
+          />
+      )}
     </div>
   )
 }

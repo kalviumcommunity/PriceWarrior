@@ -16,7 +16,7 @@ const gamesSchema = new Schema({
 
   homeGenre: {
     type: String,
-    required: true
+    // required: true
   }, 
 
   homeImage: {
@@ -25,7 +25,7 @@ const gamesSchema = new Schema({
   },
   detailImage:{
     type:String,
-    required: true
+    // required: true
 },
 
 crouselImage:[
@@ -46,40 +46,38 @@ crouselImage:[
    
   ],
 
-  current:[
-    {
-        quantity:{
-            type:String
-        },
-        rate:{
-            type:String
-        }
-    }
-  ],
+  currentMin:{
+    type:String
+  },
+  currentAvg:{
+    type:String
+  },
+  currentMax:{
+    type:String
+  },
 
-  history:[
-    {
-      quantity:{
-        type:String
-    },
-    rate:{
-        type:String
-    }
-    }
-  ],
+  historyMin:{
+    type:String
+  },
+  historyAvg:{
+    type:String
+  },
+  historyMax:{
+    type:String
+  },
 
   rating:{
         type:Number,
-        required:true
+        // required:true
   },
   trailer:{
     type:String,
-    required:true
+    // required:true
   },
 
   description:{
     type:String,
-    required:true
+    // required:true
   },
 
   relatedLinks:[
@@ -121,15 +119,15 @@ crouselImage:[
 
   developer:{
     type:String,
-    required:true
+    // required:true
   },
   publisher:{
     type:String,
-    required:true
+    // required:true
   },
   releaseDate:{
     type:String,
-    required:true
+    // required:true
   },
 
   genres:[

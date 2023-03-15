@@ -1,32 +1,41 @@
 import './navbar&footer.css';
-import {FaSearch, FaHome, FaTags, FaComments, FaList} from "react-icons/fa"
+import {FaSearch, FaHome, FaTags, FaComments, FaList, FaPlus} from "react-icons/fa"
 import {Button} from '@mui/material';
 import PersonIcon from '@mui/icons-material/Person';
 import logo from '../asseets/logo.png'
 import flag from '../asseets/indian2.png'
-
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 
 
 
-function Navbar() {
+function Navbar({ handleScrollClick}) {
+
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
 
   const handleSearch=()=>{
     const searchForm = document.querySelector('.search-form');
     searchForm.classList.toggle('active');
   }
 
-  const handleHoverEnter =()=>{
-    const abc = document.getElementById('navbar-links');
-      abc.classList.add('skewBackGround');
-  
-}
-const handleHoverLeave =()=>{
-  const abc = document.getElementById('navbar-links');
-    abc.classList.remove('skewBackGround');
+const handleClick = (e) => {
+  e.target.setAttribute("class", "skewBackGround");
+};
 
-}
+const handleLeave = (e) => {
+  e.target.removeAttribute("class", "skewBackGround");
+};
+
+
   return (
     <>
         <header className="header">
@@ -50,32 +59,45 @@ const handleHoverLeave =()=>{
 
 
 
+        
+      
+
 
           </div>
           <div className="header-2">
         <nav className="navbar">
           <div >
-            <Link to={'/'}  id='navbar-links' onMouseEnter={handleHoverEnter} onMouseLeave={handleHoverLeave}>Home</Link>
+            <Link to={'/'}  className='navbar-links' onMouseEnter={handleClick} onMouseLeave={handleLeave}>Home</Link>
             </div>
             <div >
-            <Link to={'/games'} className='navbar-links'>Games</Link>
+            <Link to={'/games'} className='navbar-links' onMouseEnter={handleClick} onMouseLeave={handleLeave}>Games</Link>
             </div>
             <div >
-            <a href="#home" className='navbar-links'>Featured</a>
+            <a onClick={handleScrollClick} className='navbar-links' onMouseEnter={handleClick} onMouseLeave={handleLeave}>Featured</a>
             </div>
             <div >
-            <a href="#home" className='navbar-links'>About Us</a>
+            <a href="#home" className='navbar-links' onMouseEnter={handleClick} onMouseLeave={handleLeave}>About Us</a>
             </div>
-          
+            <Link to={'/AdminOp'} style={{position:'absolute'}}>
+          <Button
+      style={{opacity:'0.5',fontSize:'2rem',display:'flex',  opacity: isHovered ? '1' : '0.5', background: isHovered ? 'lightBlue' : 'blue',justifyContent:'center',alignItems:'center',backgroundColor:'blue',borderRadius:'10rem', height:'6rem', width:'6rem', bottom:'6rem', zIndex:'9999', right:'4rem', position:'fixed' }}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      
+    >
+      <FaPlus/>
+    </Button>
+    </Link> 
         </nav>
     </div>
         </header>
 
         <nav className="bottom-navbar">
-    <a href="#home"><FaHome/></a>
-    <a href="#featured" ><FaList/></a>
+    <Link to={'/'}><FaHome/></Link>
+    <Link to={'/games'} ><FaList/></Link>
     <a href="#arrivals" ><FaTags/></a>
     <a href="#reviews" ><FaComments/></a>
+    <a href='#'><FaPlus/></a>
     
 </nav>
     </>

@@ -45,7 +45,7 @@ html{
     display: flex;
     align-items: center;
     margin-left: 3rem;
-    justify-content: end;
+    justify-content: flex-end;
 }
 
  .header-1{
@@ -100,6 +100,9 @@ html{
     border-radius: .5rem;
 }
 
+.bottom-navbar a{
+    display: flex;
+}
  .search-form input{
     font-size: 1.6rem;
     padding:0 1.2rem;
