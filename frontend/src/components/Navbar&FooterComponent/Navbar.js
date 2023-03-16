@@ -78,7 +78,7 @@ const handleLeave = (e) => {
             <div >
             <a href="#home" className='navbar-links' onMouseEnter={handleClick} onMouseLeave={handleLeave}>About Us</a>
             </div>
-            <Link to={'/AdminOp'} style={{position:'absolute'}}>
+            <Link to={'/adminOp'} style={{position:'absolute'}}>
           <Button
       style={{opacity:'0.5',fontSize:'2rem',display:'flex',  opacity: isHovered ? '1' : '0.5', background: isHovered ? 'lightBlue' : 'blue',justifyContent:'center',alignItems:'center',backgroundColor:'blue',borderRadius:'10rem', height:'6rem', width:'6rem', bottom:'6rem', zIndex:'9999', right:'4rem', position:'fixed' }}
       onMouseEnter={handleMouseEnter}

@@ -83,7 +83,7 @@ console.log(List)
                             </div>
                             
                             <div className="delete">
-                            <Link to={`/AdminOpPut/${game._id}`}>
+                            <Link to={`/adminopput/${game._id}`}>
                             <MdEdit style={{color:'#fff', fontSize:'2.5rem',}} />
                             </Link>
                             </div>

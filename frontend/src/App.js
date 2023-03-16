@@ -25,9 +25,8 @@ function App() {
       {/* <Route path={'/games'} element={<GameMain/>}/> */}
       <Route path={'/games'} element={<MainGameHome/>}/>
 
-      <Route path={'/AdminOp'} element={<AdminForm/>}/>
-      <Route path={'/AdminOp'} element={<AdminForm/>}/>
-      <Route path={'/AdminOpPut/:id'} element={<AdminFormPut/>}/>
+      <Route path={'/adminop'} element={<AdminForm/>}/>
+      <Route path={'/adminopput/:id'} element={<AdminFormPut/>}/>
       </Routes>
       <Footer/>
     </div>
