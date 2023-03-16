@@ -1,23 +1,34 @@
 import React from 'react'
 import rdr2 from '../../asseets/rdr2.jpg'
 import {FaWindows, FaPlaystation, FaXbox} from 'react-icons/fa'
+import {MdArrowBackIosNew} from 'react-icons/md'
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
+import { useState } from 'react';
 
 
-function About(props) {
+function About({trailer, releaseDate, developer, publisher, relatedLinks,
+               recommendedRequirements, minimumRequirements,tags, description, genres}) {
+  
+  
   return (
     <div>
         <div className='outermost-div'>
         <div className='prices-outer-div'>
-           <div className='iframe-container'> 
-        <iframe className='responsive-iframe' src={props.trailer}  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        </div>
+          
+
+   
+      <div className='iframe-container'>
+            <iframe className='responsive-iframe' src={trailer}  frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+            </div>
+    
 
         <div className='some-detail-res'>
       
     
     <div className='inner-div'>
     <div>
-      <p>Release Date:<br></br> {props.releaseDate}</p>
+      <p>Release Date:<br></br> {releaseDate}</p>
     </div>
     <div>
       <p>Platforms:<br/>
@@ -29,22 +40,22 @@ function About(props) {
 
     <div>
       Developer / Publisher: <br/>
-      <h4 >{props.developer} / {props.publisher}</h4>
+      <h4 >{developer} / {publisher}</h4>
     </div>
     <div>Genres:<br/>
     <div style={{display:'flex', flexWrap:'wrap'}}>
-    {props.genres.map((e)=>{
+    {genres.filter(e=>e.genre!=='').map((e, index)=>{
      return(
-     <h5 className='tags'>{e.genre}</h5>
+     <h5 className='tags'key={index}>{e.genre}</h5>
      )})}
     </div>
     </div>
 
     <div>Tags:<br/>
     <div style={{display:'flex', flexWrap:'wrap'}}>
-    {props.tags.map((e)=>{
+    {tags.filter(e=>e.tag!=='').map((e, index)=>{
      return(
-     <h5 className='tags'>{e.tag}</h5>
+     <h5 className='tags' key={index}>{e.tag}</h5>
      )})}
     
     
@@ -56,9 +67,9 @@ function About(props) {
     </div>
     </div>
         <div className='game-description'>
-            <h2 style={{marginBottom:'2rem', textDecoration:'underline'}}>Game Description</h2>
+            <h3 className='h3' id='requirement-heading' style={{ marginBottom:'1rem', color:'hsl(42, 99%, 46%)'}}>Game Description</h3>
         <p>
-       {props.description} </p>
+       {description} </p>
         </div>
 </div>
 <div className='qwer'>
@@ -69,7 +80,7 @@ function About(props) {
             <h3 style={{marginBottom:'1rem',textDecoration:'underline'}}>Minimum</h3>
             
             <ul >
-              {props.minimumRequirements.map((e)=>{
+              {minimumRequirements.filter(e=>e.specs!=='').map((e)=>{
                 return (
                   <li>
                   
@@ -85,7 +96,7 @@ function About(props) {
             <h3  style={{marginBottom:'1rem', textDecoration:'underline'}}>Recommended</h3>
             
             <ul>
-            {props.recommendedRequirements.map((e)=>{
+            {recommendedRequirements.filter(e=>e.specs!=='').map((e)=>{
                 return (
                   <li>
                   
@@ -101,7 +112,7 @@ function About(props) {
           <div style={{marginLeft:'3rem', marginRight:'3rem', marginBottom:'1rem'}}>
           <ul>
 
-          {props.relatedLinks.map((e)=>{
+          {relatedLinks.filter(e=>e.mssg!=='').map((e)=>{
             return(
               <li><a href={e.link}>{e.mssg}</a></li>
             )

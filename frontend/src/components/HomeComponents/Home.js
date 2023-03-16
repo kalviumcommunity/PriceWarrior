@@ -5,10 +5,11 @@ import UpcomingGames from './UpcomingGames/UpcomingGames'
 import Something from './Something/Something'
 
 function Home() {
+
   return (
     <div>
       <HomeTop/>
-      <Something/>
+      <Something />
       <LatestGame/>
       <UpcomingGames/>
       
