@@ -1,0 +1,86 @@
+.login-container {
+  position: relative;
+}
+
+.logged-btn {
+  padding: 0.8rem 2.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  border-radius: 1rem;
+
+  font-family: "Poppins";
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 2.7rem;
+  padding: 0.8rem 1.6rem;
+
+  color: var(--white);
+}
+
+.logged-img {
+  width: 5.5rem;
+  border-radius: 100%;
+  margin-right: 0.5rem;
+  border: 3px solid var(--marigold);
+  transition: 1s;
+}
+
+.logged-img:hover {
+  border-radius: 40%;
+  border: 3px solid var(--black);
+}
+
+.logoutAlert {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--marigold);
+  color: var(--black);
+  padding: 2rem;
+  z-index: 1;
+  position: absolute;
+  width: 30rem;
+  border-radius: 1rem;
+  font-family: "Poppins";
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 2.7rem;
+  top: 6.5rem;
+  right: 10px;
+}
+
+.alert-btn-container {
+  display: flex;
+  gap: 1rem;
+  margin-left: auto;
+}
+
+.alert-btn {
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.alert-btn.no {
+  color: var(--white);
+}
+
+@media (max-width: 480px) {
+  .logged-btn {
+    border-radius: 10rem;
+    padding: 0.4rem;
+  }
+
+  .logged-img {
+    width: 3.4rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .logoutAlert {
+    width: 24rem;
+    right: 8px;
+  }
+}

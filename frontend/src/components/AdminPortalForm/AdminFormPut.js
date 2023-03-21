@@ -5,56 +5,52 @@ import { useState } from "react";
 import standby from "../asseets/standby4.gif";
 import { useParams } from "react-router-dom";
 
-
 function AdminFormPut() {
-    // const nameref =useRef();
-    // const [test, setTest] = useState('');
+  // const nameref =useRef();
+  // const [test, setTest] = useState('');
   const { id } = useParams();
   console.log(id);
   const [isHide, setIsHide] = useState(true);
 
   useEffect(() => {
     const api = async () => {
-        const res = await axios.get(`http://localhost:4000/gameGet/${id}`);
-  
-        setName(res.data.name);
-        setLastName(res.data.lastName)
-        setHomeGenre(res.data.homeGenre)
-        setDeveloper(res.data.developer)
-        setPublisher(res.data.publisher)
-        setDescription(res.data.description)
-        setDetailImage(res.data.detailImage)
-        setHomeImage(res.data.homeImage)
-        setIsLatest(res.data.isLatest)
-        setIsUpcoming(res.data.isUpcoming)
-        setRating(res.data.rating)
-        setReleaseDate(res.data.releaseDate)
-        setTrailer(res.data.trailer)
-        setEditions(res.data.editions)
-        setCurrentAvg(res.data.currentAvg)
-        setCurrentMin(res.data.currentMin)
-        setCurrentMax(res.data.currentMax)
-        setHistoryMax(res.data.historyMax)
-        setHistoryAvg(res.data.historyAvg)
-        setHistoryMin(res.data.historyMin)
-        setMinimumRequirements(res.data.minimumRequirements)
-        setRecommendedRequirements(res.data.recommendedRequirements)
-        setPrice(res.data.prices)
-        setGenres(res.data.genres)
-        setTags(res.data.tags)
-        setRelatedLinks(res.data.relatedLinks)
-        setCrousel(res.data.crouselImage)
-        
-        setTimeout(() => setIsHide(false), 2000);
+      const res = await axios.get(`http://localhost:4000/gameGet/${id}`);
 
-  
+      setName(res.data.name);
+      setLastName(res.data.lastName);
+      setHomeGenre(res.data.homeGenre);
+      setDeveloper(res.data.developer);
+      setPublisher(res.data.publisher);
+      setDescription(res.data.description);
+      setDetailImage(res.data.detailImage);
+      setHomeImage(res.data.homeImage);
+      setIsLatest(res.data.isLatest);
+      setIsUpcoming(res.data.isUpcoming);
+      setRating(res.data.rating);
+      setReleaseDate(res.data.releaseDate);
+      setTrailer(res.data.trailer);
+      setEditions(res.data.editions);
+      setCurrentAvg(res.data.currentAvg);
+      setCurrentMin(res.data.currentMin);
+      setCurrentMax(res.data.currentMax);
+      setHistoryMax(res.data.historyMax);
+      setHistoryAvg(res.data.historyAvg);
+      setHistoryMin(res.data.historyMin);
+      setMinimumRequirements(res.data.minimumRequirements);
+      setRecommendedRequirements(res.data.recommendedRequirements);
+      setPrice(res.data.prices);
+      setGenres(res.data.genres);
+      setTags(res.data.tags);
+      setRelatedLinks(res.data.relatedLinks);
+      setCrousel(res.data.crouselImage);
+
+      setTimeout(() => setIsHide(false), 2000);
     };
 
     api();
-
   }, [id]);
 
-  const [name, setName] = useState("")
+  const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
   const [homeGenre, setHomeGenre] = useState("");
   const [homeImage, setHomeImage] = useState("");
@@ -80,8 +76,6 @@ function AdminFormPut() {
       specs: "",
       info: "",
     },
-
-
   ]);
 
   const [relatedLinks, setRelatedLinks] = useState([
@@ -122,7 +116,6 @@ function AdminFormPut() {
     },
   ]);
 
-  
   const handleEditionsChange = (event, index) => {
     let data = [...editions];
     data[index][event.target.name] = event.target.value;
@@ -240,11 +233,9 @@ function AdminFormPut() {
     setEditions([...editions, obj]);
   };
 
-  const removeEditions=()=>{
-   
-  }
+  const removeEditions = () => {};
 
-  const Update = async(e) => {
+  const Update = async (e) => {
     e.preventDefault();
     if (
       name !== "" &&
@@ -253,45 +244,47 @@ function AdminFormPut() {
       homeImage !== "" &&
       detailImage !== ""
     ) {
-      await fetch(`${process.env.REACT_APP_DataBase_link_to_Access_data}/gamePut/${id}`, {
-        // Adding method type
-        method: "PUT",
+      await fetch(
+        `${process.env.REACT_APP_DataBase_link_to_Access_data}/gamePut/${id}`,
+        {
+          // Adding method type
+          method: "PUT",
 
-        // Adding body or contents to send
-        body: JSON.stringify({
-          "name": name,
-          "lastName": lastName,
-          "homeGenre": homeGenre,
-          "homeImage": homeImage,
-          "detailImage": detailImage,
-          "rating": rating,
-          "isLatest": isLatest,
-          "isUpcoming": isUpcoming,
-          "editions": editions,
-          "developer": developer,
-          "publisher": publisher,
-          "releaseDate": releaseDate,
-          "genres": genres,
-          "trailer": trailer,
-          "description": description,
-          "tags": tags,
-          "crouselImage": crousel,
-          "prices": prices,
-          "minimumRequirements": minimumRequirements,
-          "recommendedRequirements": recommendedRequirements,
-          "relatedLinks": relatedLinks,
-          "currentMin": currentMin,
-          "currentAvg": currentAvg,
-          "currentMax": currentMax,
-          "historyMin": historyMin,
-          "historyAvg": historyAvg,
-          "historyMax": historyMax,
-        }),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8"
-      }
-      })
-
+          // Adding body or contents to send
+          body: JSON.stringify({
+            name: name,
+            lastName: lastName,
+            homeGenre: homeGenre,
+            homeImage: homeImage,
+            detailImage: detailImage,
+            rating: rating,
+            isLatest: isLatest,
+            isUpcoming: isUpcoming,
+            editions: editions,
+            developer: developer,
+            publisher: publisher,
+            releaseDate: releaseDate,
+            genres: genres,
+            trailer: trailer,
+            description: description,
+            tags: tags,
+            crouselImage: crousel,
+            prices: prices,
+            minimumRequirements: minimumRequirements,
+            recommendedRequirements: recommendedRequirements,
+            relatedLinks: relatedLinks,
+            currentMin: currentMin,
+            currentAvg: currentAvg,
+            currentMax: currentMax,
+            historyMin: historyMin,
+            historyAvg: historyAvg,
+            historyMax: historyMax,
+          }),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        }
+      )
         // Converting to JSON
         .then((response) => response.json())
 
@@ -317,8 +310,6 @@ function AdminFormPut() {
                   <h2>Name </h2>
                 </label>
                 <div className="admin-search-form">
-    
-
                   <input
                     placeholder="Name"
                     type="text"
@@ -394,7 +385,10 @@ function AdminFormPut() {
                   <h2>Is Latest </h2>
                 </label>
                 <div className="select-admin-search-form">
-                  <select value={isLatest} onChange={(e) => setIsLatest(e.target.value)}>
+                  <select
+                    value={isLatest}
+                    onChange={(e) => setIsLatest(e.target.value)}
+                  >
                     <option value="false">False</option>
                     <option value="true">True</option>
                   </select>
@@ -407,7 +401,10 @@ function AdminFormPut() {
                   <h2>Is Upcoming </h2>
                 </label>
                 <div className="select-admin-search-form">
-                  <select value={isUpcoming} onChange={(e) => setIsUpcoming(e.target.value)}>
+                  <select
+                    value={isUpcoming}
+                    onChange={(e) => setIsUpcoming(e.target.value)}
+                  >
                     <option value="false">False</option>
                     <option value="true">True</option>
                   </select>
@@ -465,41 +462,41 @@ function AdminFormPut() {
                 <div className="each-labe-input">
                   <label>
                     <h2>Editions</h2>
-                    <div style={{display:'flex'}}>
-                    <h3
-                      style={{
-                        background: "white",
-                        borderRadius: "0.5rem",
-                        paddingLeft: "1rem",
-                        paddingRight: "1rem",
-                        width: "min-content",
-                        marginLeft: "1rem",
-                        display: "flex",
-                        alignItems: "center",
-                        cursor: "pointer",
-                        fontSize: "2rem",
-                      }}
-                      onClick={addEditions}
-                    >
-                      +
-                    </h3>
-                    <h3
-                      style={{
-                        background: "white",
-                        borderRadius: "0.5rem",
-                        paddingLeft: "1rem",
-                        paddingRight: "1rem",
-                        width: "min-content",
-                        marginLeft: "1rem",
-                        display: "flex",
-                        alignItems: "center",
-                        cursor: "pointer",
-                        fontSize: "2rem",
-                      }}
-                      onClick={removeEditions}
-                    >
-                      -
-                    </h3>
+                    <div style={{ display: "flex" }}>
+                      <h3
+                        style={{
+                          background: "white",
+                          borderRadius: "0.5rem",
+                          paddingLeft: "1rem",
+                          paddingRight: "1rem",
+                          width: "min-content",
+                          marginLeft: "1rem",
+                          display: "flex",
+                          alignItems: "center",
+                          cursor: "pointer",
+                          fontSize: "2rem",
+                        }}
+                        onClick={addEditions}
+                      >
+                        +
+                      </h3>
+                      <h3
+                        style={{
+                          background: "white",
+                          borderRadius: "0.5rem",
+                          paddingLeft: "1rem",
+                          paddingRight: "1rem",
+                          width: "min-content",
+                          marginLeft: "1rem",
+                          display: "flex",
+                          alignItems: "center",
+                          cursor: "pointer",
+                          fontSize: "2rem",
+                        }}
+                        onClick={removeEditions}
+                      >
+                        -
+                      </h3>
                     </div>
                   </label>
                   {editions.map((edition, index) => {
