@@ -29,9 +29,9 @@ Progress Tracking
 |Application components created		|✅ |	- |
 |Application deployed		| |	- |
 |Full-Stack	|👇	|🔗|
-|IDE Setup		| |	- |
-|NodeJs REPL		| |	- |
-|Using the public folder to serve files		| |	- |
-|Postman Use for Testing		| |	- |
+|IDE Setup		|✅ |	- |
+|NodeJs REPL		|✅ |	- |
+|Using the public folder to serve files		|✅ |	- |
+|Postman Use for Testing		| ✅|	- |
 |Authentication		|✅ |	- |
 |Deployment		| |	- |
