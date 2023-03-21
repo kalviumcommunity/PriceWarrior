@@ -4,12 +4,12 @@ Progress Tracking
 |----------------|----------|---------------|
 | Back-end        |    👇    |     🔗       |
 |NodeJs - setting up a project with package.json| ✅|		-|
-|NodeJS Modules	| |	- |
+|NodeJS Modules	|✅ |	- |
 |fs Module	| | 	-  |
 |Streams and Buffers	| |	- |
-|NPM	| |	- |
+|NPM	|✅ |	- |
 |Nodemon		| ✅| - | 
-|Events in Nodejs	| |	- |
+|Events in Nodejs	|✅ |	- |
 |Express JS - first route		| ✅|	- |
 |ExpressJS - additional routes		|✅ |	- |
 |Template Engines		| |	- |
@@ -18,9 +18,11 @@ Progress Tracking
 |Databases	|👇	|🔗|
 |MongoDB - Installations and Basics		|✅ |	- |
 |Mongoose	| ✅|	- |
-|CRUD Operations		| |	- |
-|Simple API - CRUD Operations using NodeJs		| |	- |
-|Schemas and Models		| |	- |
+|CRUD Operations		|✅ |	- |
+|Simple API - CRUD Operations using NodeJs		|✅ |	- |
+|Schemas and Models		|✅ |	- |
+|Indexes	| |	- |
+|Aggregations	|✅ |	- |
 |Front-end	|👇	|🔗|
 |High-fid design for your application		| |	- |
 |ReactJS app initialization	|✅ |	- |
@@ -31,5 +33,5 @@ Progress Tracking
 |NodeJs REPL		| |	- |
 |Using the public folder to serve files		| |	- |
 |Postman Use for Testing		| |	- |
-|Authentication		| |	- |
+|Authentication		|✅ |	- |
 |Deployment		| |	- |
