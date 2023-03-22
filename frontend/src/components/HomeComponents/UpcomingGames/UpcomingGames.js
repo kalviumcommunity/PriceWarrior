@@ -1,93 +1,83 @@
-import React from 'react'
-import '../Home.css'
-import { Link } from 'react-router-dom'
-import { useEffect, useState } from 'react'
-import img1 from '../../asseets/featured-game-icon.png'
+import React from "react";
+import "../Home.css";
+import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import img1 from "../../asseets/featured-game-icon.png";
 
-import data from './data'
+// import data from "./data";
 function UpcomingGames() {
+  const [upcomingdata, setUpcomingData] = useState([]);
 
-  const [upcomingdata, setUpcomingData] = useState([])
-
-  useEffect(() => console.log(upcomingdata), [upcomingdata])
+  useEffect(() => console.log(upcomingdata), [upcomingdata]);
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_DataBase_link_to_Access_data}/gameGet`).then(res=>res.json()).then(data=>{
-      
-    
-    setUpcomingData(data)
-      
-    })
+    fetch(`${process.env.REACT_APP_DataBase_link_to_Access_data}/gameGet`)
+      .then((res) => res.json())
+      .then((data) => {
+        setUpcomingData(data);
+      });
 
     // console.log(adata)cd frontend
-  
-    
-  }, [])
+  }, []);
   return (
-    <div id='upcoming-game-container'>
-      
-
+    <div id="upcoming-game-container">
       <section class="section upcoming-game">
         <div class="container">
-
-          <h2 class="h2 section-title"  style={{fontFamily:'auto'}}>
+          <h2 class="h2 section-title" style={{ fontFamily: "auto" }}>
             Upcoming <span class="span">Games</span>
           </h2>
 
           <ul class="ul-scrollbar">
-{upcomingdata.filter(item => item.isUpcoming).map((item)=>{
-  return(
-    
-    
- <li class="scrollbar-item">
-  <Link to={`/games/${item._id}`}>
- <div class="upcoming-game-card">
+            {upcomingdata
+              .filter((item) => item.isUpcoming)
+              .map((item) => {
+                return (
+                  <li class="scrollbar-item">
+                    <Link to={`/games/${item._id}`}>
+                      <div class="upcoming-game-card">
+                        <figure
+                          class="card-banner img-holder"
+                          style={{ width: "450", height: "600" }}
+                        >
+                          <img
+                            src={item.homeImage}
+                            width="450"
+                            height="600"
+                            loading="lazy"
+                            alt="Just for Gamers"
+                            class="img-cover"
+                          />
+                        </figure>
 
-   <figure class="card-banner img-holder" style={{width: '450', height: '600'}}>
-     <img src={item.homeImage} width="450" height="600" loading="lazy"
-       alt="Just for Gamers" class="img-cover"/>
-   </figure>
+                        <div class="card-content"></div>
 
-   <div class="card-content">
+                        <div class="card-content-overlay">
+                          <img
+                            src={img1}
+                            width="36"
+                            height="60"
+                            color="black"
+                            alt=""
+                            class="card-icon"
+                          />
 
-     
-
-    
-
-   </div>
-
-   <div class="card-content-overlay">
-
-     <img src={img1} width="36" height="60"  color='black' alt=""
-       class="card-icon"/>
-
-     <h3 class="h3">
-       <a href="#" class="card-title">
-         {item.name} <span class="span">{item.lastName}</span>
-       </a>
-     </h3>
-
-    
-   </div>
-
- </div>
- </Link>
-</li>
-)
-})
-  
-}
-           
-            
-            
-
-
+                          <h3 class="h3">
+                            <a href="#" class="card-title">
+                              {item.name}{" "}
+                              <span class="span">{item.lastName}</span>
+                            </a>
+                          </h3>
+                        </div>
+                      </div>
+                    </Link>
+                  </li>
+                );
+              })}
           </ul>
-
         </div>
       </section>
     </div>
-  )
+  );
 }
 
-export default UpcomingGames
+export default UpcomingGames;

@@ -1,12 +1,10 @@
-import './homeTop.css';
+import "./homeTop.css";
 // import HomeStart from './HomeStartComponent/HomeStart';
-import Background from '../../asseets/hero-bg.jpg'
-import xx from '../../asseets/hero-8.png'
-import heroPic from './heroPictures';
-import { useEffect, useState } from 'react';
+import Background from "../../asseets/hero-bg.jpg";
+import xx from "../../asseets/hero-8.png";
+import heroPic from "./heroPictures";
+import { useEffect, useState } from "react";
 import Typewriter from "typewriter-effect";
-
-
 
 function HomeTop() {
   const [count, setCount] = useState(0);
@@ -16,84 +14,93 @@ function HomeTop() {
     // set an interval timer if we are currently moused over
     if (mousedOver) {
       const timer = setInterval(() => {
-
         setCount((prevCount) => (prevCount + 1) % heroPic.length);
       }, 10000);
-      
+
       return () => clearInterval(timer);
     } else {
-            setCount(0);
+      setCount(0);
     }
-    
   }, [mousedOver]);
 
-  useEffect(()=>{
-    setTimeout(()=>{
-      document.querySelector('.heroContent-subtitle').classList.add('active')
-    },3000)
+  useEffect(() => {
+    setTimeout(() => {
+      document.querySelector(".heroContent-subtitle").classList.add("active");
+    }, 3000);
 
-    setTimeout(()=>{
-      document.querySelector('.heroContent-subtitle').classList.remove('active')
-    },5000)
-  },[])
+    setTimeout(() => {
+      document
+        .querySelector(".heroContent-subtitle")
+        .classList.remove("active");
+    }, 5000);
+  }, []);
 
-
-  
-  
-  
-  const handleEnter=()=>{
-    const exploreBtn = document.getElementById('explore-btn');
-    exploreBtn.classList.add('hero-btn-1');
-    exploreBtn.classList.remove('hero-btn');
-    
-
-  }
-  const handleLeave =()=>{
-    const exploreBtn = document.getElementById('explore-btn');
-    exploreBtn.classList.remove('hero-btn-1');
-    exploreBtn.classList.add('hero-btn');
-  }
+  const handleEnter = () => {
+    const exploreBtn = document.getElementById("explore-btn");
+    exploreBtn.classList.add("hero-btn-1");
+    exploreBtn.classList.remove("hero-btn");
+  };
+  const handleLeave = () => {
+    const exploreBtn = document.getElementById("explore-btn");
+    exploreBtn.classList.remove("hero-btn-1");
+    exploreBtn.classList.add("hero-btn");
+  };
   return (
     <div>
-       <section class="hero-section"
-        style={{backgroundImage: "url(" + Background + ")"}}>
-        
+      <section
+        class="hero-section"
+        style={{ backgroundImage: "url(" + Background + ")" }}
+      >
         <div class="hero-container">
-
           <div class="heroContent">
-
             <h3 class="heroContent-subtitle">Gaming Duniya</h3>
 
             <h1 class="heroContent-title">
-               <span class="span"><Typewriter 
-               options={{autoStart:true,
-                loop:true,
-                delay:40,
-                 strings:[
-                "Explore",
-                "Compare the Price",
-                "& Buy"
-              ]}}/></span>
+              <span class="span">
+                <Typewriter
+                  options={{
+                    autoStart: true,
+                    loop: true,
+                    delay: 40,
+                    strings: ["Explore", "Compare the Price", "& Buy"],
+                  }}
+                />
+              </span>
             </h1>
 
             <p class="heroContent-text">
-           Tired of Browsing through multiple sites to check price of game! Find the best deals on your favorite games with our price comparison website. Browse multiple Online Stores and save Time and Money on every purchase.
+              Tired of Browsing through multiple sites to check price of game!
+              Find the best deals on your favorite games with our price
+              comparison website. Browse multiple Online Stores and save Time
+              and Money on every purchase.
             </p>
 
-            <button id='explore-btn' class="hero-btn skewBackGround"  onMouseEnter={handleEnter} onMouseLeave={handleLeave}>Explore More</button>
-
+            <button
+              id="explore-btn"
+              class="hero-btn skewBackGround"
+              onMouseEnter={handleEnter}
+              onMouseLeave={handleLeave}
+            >
+              Explore More
+            </button>
           </div>
 
-          <figure class="heroPicture-banner" style={{width: '700', height: '700'}} 
-      >
-            <img src={heroPic[count].image}  width="700" height="700" alt="heroPicture banner" class="heroPicture"/>
+          <figure
+            class="heroPicture-banner"
+            style={{ width: "700", height: "700" }}
+          >
+            <img
+              src={heroPic[count].image}
+              width="700"
+              height="700"
+              alt="heroPicture banner"
+              class="heroPicture"
+            />
           </figure>
-
         </div>
       </section>
-      </div>
-  
-  )
+    </div>
+  );
 }
 
-export default HomeTop
+export default HomeTop;

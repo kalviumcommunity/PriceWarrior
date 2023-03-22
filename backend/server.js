@@ -14,6 +14,7 @@ app.use(express.json());
 
 
 const Games = require("./models/gameModel");
+const User = require("./models/userModal")
 
 mongoose.set("strictQuery", false);
 
@@ -32,13 +33,44 @@ mongoose.connect("mongodb://localhost/PriceWarrior",{
 })
 
 
+const aggregateGameGet = [
+  {$sort:{"name":1}},
+  // {$sort:{"lastName":1}},
+  { $project: {
+    "isLatest":1,
+    "isUpcoming":1,
+    "name": 1,
+    "lastName": 1,
+    "homeImage":1,
+    "homeGenre":1,
+
+}},
+]
+
+const aggregateGameMainGet = [
+  {$sort:{"name":1}},
+  // {$sort:{"lastName":1}}
+  { $project: {
+    
+    "name": 1,
+    "lastName": 1,
+    "homeImage":1,
+    "homeGenre":1,
+    "description":1,
+    "rating":1,
+    "detailImage":1,
+    "currentMin":1
+    
+}},
+]
+
 app.get('/gameGet', async(req, res)=>{
-    const games = await Games.find().select("name lastName homeGenre homeImage isLatest isUpcoming")
+    const games = await Games.aggregate(aggregateGameGet)
     res.status(200).send(games);
 })
 
 app.get('/gameMainGet', async(req, res)=>{
-  const games = await Games.find().select("name lastName  homeImage description homeGenre rating")
+  const games = await Games.aggregate(aggregateGameMainGet)
   res.status(200).send(games);
 })
 
@@ -113,6 +145,30 @@ app.post('/gamePost', async(req, res)=>{
     //     res.status(400).json({error:error.message})
     // }
 })
+
+app.post('/login', async(req, res)=>{
+  const {name,email, isAdmin}= req.body
+  const UserModal = new User()
+  UserModal.name = name
+  UserModal.email = email
+  UserModal.isAdmin = isAdmin
+  
+  UserModal.save(async(err, data)=>{
+      if(err){
+          console.log(err)
+      }
+      else{
+          res.status(200).send(UserModal)
+      }
+  })
+})
+
+app.get('/userDetail', async(req, res)=>{
+  const user = await User.find()
+  res.status(200).send(user);
+})
+
+
 
 
 app.delete('/gameDelete/:id' ,async (req, res) => {
