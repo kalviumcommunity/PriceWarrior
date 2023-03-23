@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import "./Login.css";
 import { Button } from "@mui/material";
@@ -9,16 +9,36 @@ export default function LoginAuth0() {
     useAuth0();
 
   const [alert, setAlert] = useState(false);
+  const authDataRef = useRef(null);
+  
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (authDataRef.current && !authDataRef.current.contains(event.target)) {
+        setAlert(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [alert]);
+
 
   if (isLoading) {
     return <h2 style={{ color: "#fff" }}>Plz Wait...</h2>;
   }
 
+  
+
+
   return (
     <div className="login-container">
+      
       {isAuthenticated ? (
         <button className="logged-btn" onClick={() => setAlert(!alert)}>
-          <img src={user.picture} className="logged-img" />
+          <img src={user.picture} className="logged-img" alt="#" />
         </button>
       ) : (
         <Button
@@ -39,7 +59,7 @@ export default function LoginAuth0() {
         </Button>
       )}
       {alert && (
-        <div className="logoutAlert">
+        <div className="logoutAlert" ref={authDataRef}>
           <div className="alert-text">
             Do you want to <span style={{ color: "#fff" }}>logout?</span>
           </div>

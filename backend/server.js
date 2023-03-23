@@ -18,7 +18,7 @@ const User = require("./models/userModal")
 
 mongoose.set("strictQuery", false);
 
-mongoose.connect("mongodb://localhost/PriceWarrior",{
+mongoose.connect(process.env.MONGODB_URI,{
     useNewUrlParser:true,
     useUnifiedTopology:true,
     family:4
