@@ -22,7 +22,7 @@ function GameFinal() {
       setGameData(res.data);
       setTimeout(()=>{
         setLoading(false)
-      },3000)
+      },1000)
       
         
 
@@ -38,7 +38,7 @@ function GameFinal() {
       
     {loading ? (
       <div className="loading-ani">
-     <img width='250' src={loadin}/>
+     <img width='300' src={loadin}/>
      <h2>Loading...</h2>
      </div>
     ):(

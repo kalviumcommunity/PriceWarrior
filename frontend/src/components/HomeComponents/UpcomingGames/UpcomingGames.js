@@ -5,20 +5,12 @@ import { useEffect, useState } from "react";
 import img1 from "../../asseets/featured-game-icon.png";
 
 // import data from "./data";
-function UpcomingGames() {
-  const [upcomingdata, setUpcomingData] = useState([]);
+function UpcomingGames({data}) {
 
-  useEffect(() => console.log(upcomingdata), [upcomingdata]);
 
-  useEffect(() => {
-    fetch(`${process.env.REACT_APP_DataBase_link_to_Access_data}/gameGet`)
-      .then((res) => res.json())
-      .then((data) => {
-        setUpcomingData(data);
-      });
+  
 
-    // console.log(adata)cd frontend
-  }, []);
+  
   return (
     <div id="upcoming-game-container">
       <section class="section upcoming-game">
@@ -28,7 +20,7 @@ function UpcomingGames() {
           </h2>
 
           <ul class="ul-scrollbar">
-            {upcomingdata
+            {data
               .filter((item) => item.isUpcoming)
               .map((item) => {
                 return (

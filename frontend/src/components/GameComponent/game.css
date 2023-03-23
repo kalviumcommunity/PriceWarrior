@@ -71,6 +71,7 @@
 }
 .gamefinal{
   min-height: 54vh;
+  background-color: #FEFCFE;
 }
 .price-route {
   cursor: pointer;

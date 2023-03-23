@@ -5,18 +5,10 @@ import { LoremIpsum } from "react-lorem-ipsum";
 // import data from '../UpcomingGames/data';
 import { Link } from "react-router-dom";
 
-function LatestGame() {
-  const [data, setData] = useState([]);
+function LatestGame({data}) {
 
-  useEffect(() => console.log(data), [data]);
 
-  useEffect(() => {
-    fetch(`${process.env.REACT_APP_DataBase_link_to_Access_data}/gameGet`)
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data);
-      });
-  }, []);
+  
 
   return (
     <>
@@ -33,6 +25,7 @@ function LatestGame() {
                 .map((item) => {
                   return (
                     <li class="scrollbar-item">
+                      <Link to={`/games/${item._id}`}>
                       <div class="latest-game-card">
                         <figure
                           class="card-banner  img-holder"
@@ -54,13 +47,14 @@ function LatestGame() {
                           </a>
 
                           <h3 class="h3">
-                            <Link to={`/games/${item._id}`} class="card-title">
+                            <a  class="card-title">
                               {item.name}{" "}
                               <span class="span">{item.lastName}</span>
-                            </Link>
+                            </a>
                           </h3>
                         </div>
                       </div>
+                      </Link>
                     </li>
                   );
                 })}
