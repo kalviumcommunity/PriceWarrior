@@ -15,7 +15,7 @@ function GameFinal() {
   // useEffect(() => console.log(gameData), [gameData])
 
   useEffect(() => {
-    fetch(`http://localhost:4000/gameGet/${id}`)
+    fetch(`${process.env.REACT_APP_DataBase_link_to_Access_data}/gameGet/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setGameData(data);
