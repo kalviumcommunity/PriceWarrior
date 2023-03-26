@@ -3,8 +3,8 @@ import React from "react";
 import {
   FaLinkedin,
   FaInstagram,
-  FaTwitter,
-  FaFacebookSquare,
+  
+  FaGithub,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 // import { fontSize } from '@mui/system';
@@ -15,34 +15,29 @@ function Footer() {
       <footer>
         <ul className="social_icon">
           <li>
-            <a href="#">
+            <a href="https://www.linkedin.com/in/arpit-gulati-431158257/" target={'_blank'}>
               <FaLinkedin style={{ color: "#0072b1" }} />
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="https://www.instagram.com/ag_124_/" target='_blank'>
               <FaInstagram style={{ color: "#fa7e1e" }} />
             </a>
           </li>
           <li>
-            <a href="#">
-              <FaTwitter style={{ color: "#1DA1F2" }} />
+            <a href="https://github.com/Arpit1204" target='_blank'>
+              <FaGithub style={{ color: "black" }} />
             </a>
           </li>
         </ul>
         <ul className="menu">
           <li>
-            <a href="#">Home</a>
+            <Link to={'/'}>Home</Link>
           </li>
           <li>
-            <a href="#">About Us</a>
+            <Link to={'/aboutus'} href="#">About Us</Link>
           </li>
-          <li>
-            <a href="#">Services</a>
-          </li>
-          <li>
-            <a href="#">Team</a>
-          </li>
+          
         </ul>
         <h2>
           {" "}

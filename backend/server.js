@@ -6,7 +6,11 @@ const cors = require('cors')
 const bodyParser = require('body-parser');
 
 
-app.use(cors());
+app.use(cors(
+  {
+    origin:["http://localhost:3000" , "https://pricewarrior.netlify.app"]
+  }
+));
 app.use(express.json());
 // app.use(bodyParser.urlencoded({
 //   extended: true
@@ -18,7 +22,7 @@ const User = require("./models/userModal")
 
 mongoose.set("strictQuery", false);
 
-mongoose.connect("mongodb://localhost/PriceWarrior",{
+mongoose.connect(process.env.MONGODB_URI,{
     useNewUrlParser:true,
     useUnifiedTopology:true,
     family:4

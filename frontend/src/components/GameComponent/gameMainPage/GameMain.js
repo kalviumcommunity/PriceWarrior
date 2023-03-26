@@ -6,20 +6,12 @@ import { MdDelete, MdEdit } from "react-icons/md";
 import { FaSearch } from "react-icons/fa";
 import { useAuth0 } from "@auth0/auth0-react";
 
-const GameList = () => {
-  // const {id} = useParams()
+const GameList = ({List, setList, loading}) => {
 
-  // console.log(id)
 
-  const [List, setList] = useState([]);
-  // const {type} = useParams()
   const [search, setSearch] = useState("");
 
-  useEffect(() => {
-    fetch(`${process.env.REACT_APP_DataBase_link_to_Access_data}/gameMainGet`)
-      .then((res) => res.json())
-      .then((data) => setList(data));
-  }, []);
+  
   const { user, isAuthenticated } = useAuth0();
   const handleDelete = (id) => {
     fetch(

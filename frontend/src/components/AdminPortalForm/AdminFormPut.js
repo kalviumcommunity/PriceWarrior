@@ -14,7 +14,7 @@ function AdminFormPut() {
 
   useEffect(() => {
     const api = async () => {
-      const res = await axios.get(`http://localhost:4000/gameGet/${id}`);
+      const res = await axios.get(`${process.env.REACT_APP_DataBase_link_to_Access_data}/gameGet/${id}`);
 
       setName(res.data.name);
       setLastName(res.data.lastName);

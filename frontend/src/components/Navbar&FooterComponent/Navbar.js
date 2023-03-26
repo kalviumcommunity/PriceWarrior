@@ -57,6 +57,7 @@ function Navbar({ mainRef }) {
   };
 
   const handleScroll = (ref) => {
+    
     window.scrollTo({
       top: ref.offsetTop,
       left: 0,

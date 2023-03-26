@@ -1,10 +1,9 @@
 import "./homeTop.css";
-// import HomeStart from './HomeStartComponent/HomeStart';
 import Background from "../../asseets/hero-bg.jpg";
-import xx from "../../asseets/hero-8.png";
 import heroPic from "./heroPictures";
 import { useEffect, useState } from "react";
 import Typewriter from "typewriter-effect";
+import { Link } from "react-router-dom";
 
 function HomeTop() {
   const [count, setCount] = useState(0);
@@ -53,7 +52,7 @@ function HomeTop() {
       >
         <div class="hero-container">
           <div class="heroContent">
-            <h3 class="heroContent-subtitle">Gaming Duniya</h3>
+            <h3 class="heroContent-subtitle">Price Warrior</h3>
 
             <h1 class="heroContent-title">
               <span class="span">
@@ -74,7 +73,7 @@ function HomeTop() {
               comparison website. Browse multiple Online Stores and save Time
               and Money on every purchase.
             </p>
-
+            <Link to={'/games'}>
             <button
               id="explore-btn"
               class="hero-btn skewBackGround"
@@ -83,6 +82,7 @@ function HomeTop() {
             >
               Explore More
             </button>
+            </Link>
           </div>
 
           <figure

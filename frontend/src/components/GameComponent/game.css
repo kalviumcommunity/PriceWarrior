@@ -56,10 +56,22 @@
   display: flex;
   flex-direction: column;
 }
+.loading-ani{
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  justify-content:center ;
+  align-items: center;
+  flex-direction: column;
+}
 
 .gamefinal {
   /* background: url(); */
   background-size: 100%;
+}
+.gamefinal{
+  min-height: 54vh;
+  background-color: #FEFCFE;
 }
 .price-route {
   cursor: pointer;
