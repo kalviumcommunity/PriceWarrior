@@ -10,7 +10,8 @@ import AdminFormPut from "./components/AdminPortalForm/AdminFormPut";
 import { useEffect, useState } from "react";
 import { useRef } from "react";
 import axios from "axios";
-import loadin from '../src/components/asseets/loadinghd.gif'
+// import Image from '../src/components/demo/src/App.js'
+import loadin from '../src/components/asseets/loadinghd8.gif'
 function App() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true)
@@ -32,15 +33,17 @@ function App() {
   return (
     <div className="App">
       {loading?(
-        <div className="loading-ani">
+        <div className="loading-ani-main">
         <img width='250' src={loadin}/>
-        <h2>Loading...</h2>
+        <h2>Loading... Plz Stand By!</h2>
         </div>
       ):(
         <>
 <Navbar mainRef = {mainRef} />
+
 <Routes>
   <Route path={"/"} element={<Home  mainRef = {mainRef} data={data} />} />
+ 
   <Route path={"/games/:id"} element={<GameFinal />} />
   <Route path={"/games"} element={<MainGameHome />} />
 

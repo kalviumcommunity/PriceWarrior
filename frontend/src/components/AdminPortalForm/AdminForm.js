@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import "./admin.css";
 import { useState } from "react";
-import standby from "../asseets/standby4.gif";
 function AdminForm() {
   const [isHide, setIsHide] = useState(true);
 
@@ -261,7 +260,7 @@ function AdminForm() {
     <div className="admin-form-outer-div">
       {isHide ? (
         <div className="abc">
-          <img src={standby} alt="image description" />
+          {/* <img src={standby} alt="image description" /> */}
           <h1>Loading Plzzz StandBy...</h1>
         </div>
       ) : (

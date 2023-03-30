@@ -22,7 +22,7 @@ const User = require("./models/userModal")
 
 mongoose.set("strictQuery", false);
 
-mongoose.connect(process.env.MONGODB_URI,{
+mongoose.connect(process.env.MONGO_URI,{
     useNewUrlParser:true,
     useUnifiedTopology:true,
     family:4

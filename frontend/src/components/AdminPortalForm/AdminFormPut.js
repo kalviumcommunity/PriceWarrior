@@ -2,19 +2,18 @@ import React, { useEffect } from "react";
 import "./admin.css";
 import axios from "axios";
 import { useState } from "react";
-import standby from "../asseets/standby4.gif";
 import { useParams } from "react-router-dom";
 
 function AdminFormPut() {
-  // const nameref =useRef();
-  // const [test, setTest] = useState('');
   const { id } = useParams();
   console.log(id);
   const [isHide, setIsHide] = useState(true);
 
   useEffect(() => {
     const api = async () => {
-      const res = await axios.get(`${process.env.REACT_APP_DataBase_link_to_Access_data}/gameGet/${id}`);
+      const res = await axios.get(
+        `${process.env.REACT_APP_DataBase_link_to_Access_data}/gameGet/${id}`
+      );
 
       setName(res.data.name);
       setLastName(res.data.lastName);
@@ -298,7 +297,7 @@ function AdminFormPut() {
     <div className="admin-form-outer-div">
       {isHide ? (
         <div className="abc">
-          <img src={standby} alt="image description" />
+          {/* <img src={standby} alt="image description" /> */}
           <h1>Loading Plzzz StandBy...</h1>
         </div>
       ) : (
