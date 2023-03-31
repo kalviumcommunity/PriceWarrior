@@ -1,10 +1,7 @@
 import React from "react";
-import rdr2 from "../../asseets/rdr2.jpg";
 import { FaWindows, FaPlaystation, FaXbox } from "react-icons/fa";
-import { MdArrowBackIosNew } from "react-icons/md";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from "react-responsive-carousel";
-import { useState } from "react";
+
 
 function About({
   trailer,
@@ -126,9 +123,9 @@ function About({
               <ul>
                 {minimumRequirements
                   .filter((e) => e.specs !== "")
-                  .map((e) => {
+                  .map((e, index) => {
                     return (
-                      <li>
+                      <li key={index}>
                         <span style={{ color: "hsl(42, 99%, 46%)" }}>
                           {" "}
                           {e.specs}:
@@ -154,9 +151,9 @@ function About({
               <ul>
                 {recommendedRequirements
                   .filter((e) => e.specs !== "")
-                  .map((e) => {
+                  .map((e, index) => {
                     return (
-                      <li>
+                      <li key={index}>
                         <span style={{ color: "hsl(42, 99%, 46%)" }}>
                           {" "}
                           {e.specs}:
@@ -193,9 +190,9 @@ function About({
               <ul>
                 {relatedLinks
                   .filter((e) => e.mssg !== "")
-                  .map((e) => {
+                  .map((e, index) => {
                     return (
-                      <li>
+                      <li key={index}>
                         <a href={e.link}>{e.mssg}</a>
                       </li>
                     );
