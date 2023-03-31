@@ -35,7 +35,7 @@ function MainGameHome() {
     <div className="gamefinal">
       {loading ?(
          <div className="loading-ani">
-         <img width='250' src={loadin}/>
+         <img  src={loadin}/>
          <h2>Loading...</h2>
          </div>
       ):(
