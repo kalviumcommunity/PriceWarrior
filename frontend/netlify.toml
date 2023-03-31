@@ -1,6 +1,6 @@
 # netlify config
 [build]
-  command = "CI=false npm run build"
+  command = "CI=npm run build"
   functions = "netlify/functions"
   publish = "build"
 
