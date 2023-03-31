@@ -5,7 +5,7 @@ import { Carousel } from "react-responsive-carousel";
 import { Link } from "react-router-dom";
 import GameList from "./GameMain";
 import axios from "axios";
-import loadin from '../../asseets/loadinghd.gif'
+import loadin from '../../asseets/loadinghd7.gif'
 
 function MainGameHome() {
   const [List, setList] = useState([]);
