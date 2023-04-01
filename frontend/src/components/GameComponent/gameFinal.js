@@ -5,7 +5,7 @@ import axios from 'axios'
 import About from "./gameparts/About";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import loadin from '../asseets/loadinghd.gif'
+import loadin from '../asseets/loadinghd7.gif'
 
 function GameFinal() {
   const { id } = useParams();
@@ -13,7 +13,6 @@ function GameFinal() {
   const [gameData, setGameData] = useState();
   const [loading, setLoading] = useState(true)
   const [selectedButton, setSelectedButton] = useState("Prices");
-  // useEffect(() => console.log(gameData), [gameData])
 
   useEffect(() => {
     const apiCall = async ()=>{
@@ -22,7 +21,7 @@ function GameFinal() {
       setGameData(res.data);
       setTimeout(()=>{
         setLoading(false)
-      },1000)
+      },2000)
       
         
 
@@ -32,14 +31,14 @@ function GameFinal() {
 
   
 
-  // let detail = particularData[Number(id) - 1];
   return (
     <div className="gamefinal">
       
     {loading ? (
       <div className="loading-ani">
-     <img width='300' src={loadin}/>
-     <h2>Loading...</h2>
+         <img  src={loadin}/>
+         <h2>Loading...</h2>
+
      </div>
     ):(
  <div className="gamefinal">

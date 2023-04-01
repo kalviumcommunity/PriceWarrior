@@ -6,7 +6,7 @@ import { MdDelete, MdEdit } from "react-icons/md";
 import { FaSearch } from "react-icons/fa";
 import { useAuth0 } from "@auth0/auth0-react";
 
-const GameList = ({List, setList, loading}) => {
+const GameList = ({List, setList}) => {
 
 
   const [search, setSearch] = useState("");
@@ -56,7 +56,7 @@ const GameList = ({List, setList, loading}) => {
         <div className="game-page-listCard">
           {SearchGame.map((game, index) => {
             return (
-              <div>
+              <div key={index}>
                 <div className="game-page-card">
                   <img className="game-page-cards-img" src={game.homeImage} />
 

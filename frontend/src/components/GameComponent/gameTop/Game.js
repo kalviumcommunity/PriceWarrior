@@ -1,6 +1,6 @@
 import "../game.css";
 import "../../HomeComponents/Home.css";
-import img from "../../asseets/rdr2.jpg";
+
 import { LoremIpsum } from "react-lorem-ipsum";
 import { useEffect, useInsertionEffect, useState } from "react";
 import { Carousel } from "react-responsive-carousel";
