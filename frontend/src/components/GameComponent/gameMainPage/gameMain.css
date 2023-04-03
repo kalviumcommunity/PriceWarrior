@@ -40,6 +40,25 @@
   width: 100%;
 }
 
+@media(max-width:665px){
+  .game-page-card{
+    height: 260px;
+  }
+  .game-page-cards-img{
+    height: 260px;
+  }
+}
+@media(max-width:490px){
+  .game-page-card{
+    height: 330px;
+  }
+  .game-page-cards-img{
+    height: 330px;
+  }
+  .game-page-list{
+    padding: 0 1rem 3rem 1rem;
+  }
+}
 .box {
   height: 50px;
   width: 89%;
@@ -162,10 +181,21 @@ body {
 .container-carousel {
   margin-top: 0rem;
   max-width: 184rem;
-  padding: 0rem 0.5rem;
+  padding: 0rem -0.5rem;
   background-color: white;
 }
 
+
+/* .partImage{
+  height: 365px;
+}
+
+.partImage > img {
+  margin: auto;
+  display: block;
+  width: 100%;
+  
+} */
 
 
 
@@ -183,21 +213,21 @@ body {
 
 @media (max-width: 665px) {
   .swiper_container {
-    height: 47rem;
+    height: 46rem;
   }
   .swiper-slide {
-    width: 28rem !important;
-    height: 36rem !important;
+    width: 31rem !important;
+    height: 38rem !important;
   }
-  .swiper-slide img {
-    width: 28rem !important;
-    height: 36rem !important;
+  .swiper-slide .img {
+    width: 31rem !important;
+    height: 38rem !important;
   }
 
 }
 
 
-.swiper-slide img {
+.swiper-slide .img {
   width: 71rem;
     height: 40rem;
     border-radius: 2rem;
@@ -283,10 +313,12 @@ body {
   background: var(--marigold);
 }
 
+/* .carousel{
+  display: none;
+}
 
-
-/* @media (max-width:700px){
-  .Carousel{
+@media (max-width:700px){
+  .carousel{
     display: inline;
   }
   .swiper_container{

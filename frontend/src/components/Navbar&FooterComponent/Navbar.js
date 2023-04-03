@@ -73,7 +73,7 @@ function Navbar({ mainRef }) {
             <img className="logoPrice" src={logoPrice} />
           </div>
           <img id="logo-img" src={logo} />
-          <a href="#" class="logo" id="websiteName">
+          <a href="#" className="logo" id="websiteName">
             {" "}
             Price Warrior{" "}
           </a>
@@ -106,10 +106,10 @@ function Navbar({ mainRef }) {
                     );
                   })
                   .slice(0, 4)
-                  .map((i) => {
+                  .map((i, index) => {
                     return (
                       <>
-                        <Link to={`/games/${i._id}`}>
+                        <Link to={`/games/${i._id}`} key={index}>
                           <div
                             className="search-game-div"
                             onClick={() => setValue(i.name + " " + i.lastName)}

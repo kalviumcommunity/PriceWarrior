@@ -54,19 +54,19 @@ h3 .span {
 }
 
 .ul-scrollbar::-webkit-scrollbar {
-  height: 10px;
+  height: 4px;
 }
 
 .ul-scrollbar::-webkit-scrollbar-track {
-  outline: 3px solid rgb(59, 36, 36);
+  outline: 3px solid rgb(49, 44, 44);
 }
 
 .ul-scrollbar::-webkit-scrollbar-thumb {
-  background-color: rgb(42, 6, 6);
+  background-color: rgb(92, 88, 88);
 }
 
 .ul-scrollbar::-webkit-scrollbar-button {
-  width: 10vw;
+  width: 10%;
 }
 .scrollbar-item {
   min-width: 100%;
@@ -130,7 +130,7 @@ h3 .span {
 
 .upcoming-game-card .card-content-overlay {
   inset: 0;
-  background-color: var(--marigold_75);
+  background-color: hsl(42deg 5.32% 50.38% / 75%);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -164,6 +164,7 @@ h3 .span {
 
 .upcoming-game-card .card-icon {
   margin-block-end: 20px;
+  width: 30%;
 }
 
 .upcoming-game-card .card-content-overlay .card-title {

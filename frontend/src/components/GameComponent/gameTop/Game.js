@@ -1,6 +1,5 @@
 import "../game.css";
 import "../../HomeComponents/Home.css";
-
 import { LoremIpsum } from "react-lorem-ipsum";
 import { useEffect, useInsertionEffect, useState } from "react";
 import { Carousel } from "react-responsive-carousel";
@@ -83,8 +82,8 @@ function Game({
                 <div style={{ flexWrap: "wrap" }}>
                   {edition
                     .filter((e) => e.editionName !== "")
-                    .map((e) => {
-                      return <h5 className="tags">{e.editionName}</h5>;
+                    .map((e, index) => {
+                      return <h5 className="tags" key={index}>{e.editionName}</h5>;
                     })}
                 </div>
               </div>

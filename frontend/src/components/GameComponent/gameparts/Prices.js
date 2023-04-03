@@ -31,7 +31,7 @@ function Prices({
       <div className="prices-outer-div">
         {prices
           .filter((e) => e.price !== "")
-          .map((e) => {
+          .map((e, index) => {
             if (e.site === "Steam") {
               img = steam;
             } else if (e.site === "Epic Games") {
@@ -64,7 +64,7 @@ function Prices({
             console.log(y);
 
             return (
-              <div className="price-container">
+              <div className="price-container" key={index}>
                 <div className="name-div">
                   <h3 className="h3" style={{ fontFamily: "auto" }}>
                     {y} <span className="span">{x[x.length - 1]}</span>
@@ -125,8 +125,8 @@ function Prices({
             <div style={{ display: "flex", flexWrap: "wrap" }}>
               {genres
                 .filter((e) => e.genre !== "")
-                .map((e) => {
-                  return <h5 className="tags">{e.genre}</h5>;
+                .map((e, index) => {
+                  return <h5 className="tags" key={index}>{e.genre}</h5>;
                 })}
             </div>
           </div>
@@ -137,8 +137,8 @@ function Prices({
             <div style={{ display: "flex", flexWrap: "wrap" }}>
               {tags
                 .filter((e) => e.tag !== "")
-                .map((e) => {
-                  return <h5 className="tags">{e.tag}</h5>;
+                .map((e, index) => {
+                  return <h5 className="tags" key={index}>{e.tag}</h5>;
                 })}
             </div>
           </div>

@@ -1,8 +1,4 @@
-import React, { useState, useEffect } from "react";
-// import "./latestGame.css";
-import { LoremIpsum } from "react-lorem-ipsum";
-// import xx from '../../asseets/featured-game-1.jpg'
-// import data from '../UpcomingGames/data';
+
 import { Link } from "react-router-dom";
 
 function LatestGame({data}) {
@@ -12,23 +8,23 @@ function LatestGame({data}) {
 
   return (
     <>
-      <div class="section-wrapper">
-        <section class="section latest-game" aria-label="latest game">
-          <div class="container">
-            <h2 class="h2 section-title" style={{ fontFamily: "auto" }}>
-              Latest <span class="span">Releases</span>
+      <div className="section-wrapper">
+        <section className="section latest-game" aria-label="latest game">
+          <div className="container">
+            <h2 className="h2 section-title" style={{ fontFamily: "auto" }}>
+              Latest <span className="span">Releases</span>
             </h2>
 
-            <ul class="ul-scrollbar">
+            <ul className="ul-scrollbar">
               {data
                 .filter((item) => item.isLatest)
-                .map((item) => {
+                .map((item, index) => {
                   return (
-                    <li class="scrollbar-item">
+                    <li className="scrollbar-item" key={index}>
                       <Link to={`/games/${item._id}`}>
-                      <div class="latest-game-card">
+                      <div className="latest-game-card">
                         <figure
-                          class="card-banner  img-holder"
+                          className="card-banner  img-holder"
                           style={{ width: "400", height: "470" }}
                         >
                           <img
@@ -37,19 +33,19 @@ function LatestGame({data}) {
                             height="470"
                             loading="lazy"
                             alt="White Walker Daily"
-                            class="img-cover"
+                            className="img-cover"
                           />
                         </figure>
 
-                        <div class="card-content">
-                          <a href="#" class="card-badge skewBackGround">
+                        <div className="card-content">
+                          <a href="#" className="card-badge skewBackGround">
                             {item.homeGenre}
                           </a>
 
-                          <h3 class="h3">
-                            <a  class="card-title">
+                          <h3 className="h3">
+                            <a  className="card-title">
                               {item.name}{" "}
-                              <span class="span">{item.lastName}</span>
+                              <span className="span">{item.lastName}</span>
                             </a>
                           </h3>
                         </div>
