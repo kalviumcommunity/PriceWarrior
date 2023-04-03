@@ -63,7 +63,7 @@ function ImageCarousel() {
                 return <img src={e.detailImage} className="game-img" key={index} />;
               })}
             </Carousel> */}
-      <Swiper
+       <Swiper
       
         effect={'coverflow'}
         grabCursor={true}
@@ -86,7 +86,7 @@ function ImageCarousel() {
           prevEl: '.swiper-button-prev',
           clickable: true,
         }}
-        modules={[Autoplay,EffectCoverflow, Pagination, Navigation]}
+        modules={[Autoplay, EffectCoverflow, Pagination, Navigation]}
         className="swiper_container"
       >
         
@@ -98,8 +98,8 @@ function ImageCarousel() {
               <SwiperSlide key={index}>
               <Link to={`/games/${e._id}`}>
                 <picture>
-                  <source media='(max-width:665px)' srcSet={e.homeImage}/>
-            <img src={e.detailImage}/>
+                  <source className='img' media='(max-width:665px)' srcSet={e.homeImage}/>
+            <img className='img' src={e.detailImage}/>
 
                 </picture>
           </Link>
@@ -112,18 +112,12 @@ function ImageCarousel() {
         
         
         <div style={{display:'flex', justifyContent:'center'}}  className="slider-controler">
-          {/* <div className="swiper-button-prev slider-arrow">
-            <FaCaretLeft name="arrow-back-outline"></FaCaretLeft>
-          </div> */}
-          {/* <div className="swiper-button-next slider-arrow">
-            <FaCaretRight name="arrow-forward-outline"></FaCaretRight>
-          </div> */}
-          <div justifyContent={'center'} >
+           <div justifyContent={'center'} >
           <div   className="swiper-pagination"></div>
           </div>
         </div>
        
-      </Swiper>
+      </Swiper> 
           <GameList List={List} setList={setList}/>
 
     </div>

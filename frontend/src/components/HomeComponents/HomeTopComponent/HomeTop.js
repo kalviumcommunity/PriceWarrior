@@ -47,15 +47,15 @@ function HomeTop() {
   return (
     <div>
       <section
-        class="hero-section"
+        className="hero-section"
         style={{ backgroundImage: "url(" + Background + ")" }}
       >
-        <div class="hero-container">
-          <div class="heroContent">
-            <h3 class="heroContent-subtitle">Price Warrior</h3>
+        <div className="hero-container">
+          <div className="heroContent">
+            <h3 className="heroContent-subtitle">Price Warrior</h3>
 
-            <h1 class="heroContent-title">
-              <span class="span">
+            <h1 className="heroContent-title">
+              <span className="span">
                 <Typewriter
                   options={{
                     autoStart: true,
@@ -67,7 +67,7 @@ function HomeTop() {
               </span>
             </h1>
 
-            <p class="heroContent-text">
+            <p className="heroContent-text">
               Tired of Browsing through multiple sites to check price of game!
               Find the best deals on your favorite games with our price
               comparison website. Browse multiple Online Stores and save Time
@@ -76,7 +76,7 @@ function HomeTop() {
             <Link to={'/games'}>
             <button
               id="explore-btn"
-              class="hero-btn skewBackGround"
+              className="hero-btn skewBackGround"
               onMouseEnter={handleEnter}
               onMouseLeave={handleLeave}
             >
@@ -86,7 +86,7 @@ function HomeTop() {
           </div>
 
           <figure
-            class="heroPicture-banner"
+            className="heroPicture-banner"
             style={{ width: "700", height: "700" }}
           >
             <img
@@ -94,7 +94,7 @@ function HomeTop() {
               width="700"
               height="700"
               alt="heroPicture banner"
-              class="heroPicture"
+              className="heroPicture"
             />
           </figure>
         </div>
