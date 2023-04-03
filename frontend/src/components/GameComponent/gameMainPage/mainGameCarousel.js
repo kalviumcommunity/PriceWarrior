@@ -1,27 +1,38 @@
-import React, { useEffect, useState } from "react";
-import "./gameMain.css";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from "react-responsive-carousel";
-import { Link } from "react-router-dom";
-import GameList from "./GameMain";
-import axios from "axios";
+import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Link } from 'react-router-dom';
+import 'swiper/css';
+import './gameMain.css'
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { useState, useEffect } from 'react';
+import { Autoplay,EffectCoverflow, Pagination, Navigation } from 'swiper';
+import { FaCaretLeft, FaCaretRight } from 'react-icons/fa';
+import GameList from './GameMain';
+import axios from 'axios';
 import loadin from '../../asseets/loadinghd7.gif'
+import { Carousel } from 'react-responsive-carousel';
 
-function MainGameHome() {
+
+
+function ImageCarousel() {
+
   const [List, setList] = useState([]);
   const [popular, setPopular] = useState([]);
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const apiGameCall = async ()=>{
-      const res = await axios.get(`${process.env.REACT_APP_DataBase_link_to_Access_data}/gameMainGet`)
-       setList(res.data);
-       setTimeout(()=>{
-         setLoading(false)
-
-       },1000)
-    }
-    apiGameCall()
+    const apiGameCall = async () => {
+      const res = await axios.get(
+        `${process.env.REACT_APP_DataBase_link_to_Access_data}/gameMainGet`
+      );
+      setList(res.data);
+      setTimeout(() => {
+        setLoading(false);
+      }, 2000);
+    };
+    apiGameCall();
   }, []);
 
   useEffect(() => {
@@ -32,21 +43,94 @@ function MainGameHome() {
   }, []);
 
   return (
-    <div className="gamefinal">
-      {loading ?(
-         <div className="loading-ani">
-         <img  src={loadin}/>
+    <div className='gamefinal'>
+    {loading ?
+     <div className="loading-ani">
+         <img src={loadin}/>
          <h2>Loading...</h2>
-         </div>
-      ):(
-        <div className="parts">
-        <GameList List = {List} setList = {setList} />
-      </div>
-      )}
+     </div>:
+     <>
+    <div className="container-carousel">
+    {/* <Carousel
+              showThumbs={false}
+              autoPlay={true}
+              transitionTime={21}
+              infiniteLoop={true}
+              showStatus={false}
+              className='Carousel'
+            >
+              {List.map((e, index) => {
+                return <img src={e.detailImage} className="game-img" key={index} />;
+              })}
+            </Carousel> */}
+      <Swiper
+      
+        effect={'coverflow'}
+        grabCursor={true}
+        centeredSlides={true}
+        loop={true}
+        autoplay={{
+          delay: 5000,
+          disableOnInteraction: false
+      }}
+        slidesPerView={'auto'}
+        coverflowEffect={{
+          rotate: 0,
+          stretch: 0,
+          depth: 100,
+          modifier: 2.5,
+        }}
+        pagination={{ el: '.swiper-pagination', clickable: true }}
+        navigation={{
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+          clickable: true,
+        }}
+        modules={[Autoplay,EffectCoverflow, Pagination, Navigation]}
+        className="swiper_container"
+      >
+        
+          
+          
+          {List.map((e, index)=>{
+            return(
+              <>
+              <SwiperSlide key={index}>
+              <Link to={`/games/${e._id}`}>
+                <picture>
+                  <source media='(max-width:665px)' srcSet={e.homeImage}/>
+            <img src={e.detailImage}/>
 
-   
+                </picture>
+          </Link>
+        </SwiperSlide>
+        </>
+            )
+          })}
+          
+        
+        
+        
+        <div style={{display:'flex', justifyContent:'center'}}  className="slider-controler">
+          {/* <div className="swiper-button-prev slider-arrow">
+            <FaCaretLeft name="arrow-back-outline"></FaCaretLeft>
+          </div> */}
+          {/* <div className="swiper-button-next slider-arrow">
+            <FaCaretRight name="arrow-forward-outline"></FaCaretRight>
+          </div> */}
+          <div justifyContent={'center'} >
+          <div   className="swiper-pagination"></div>
+          </div>
+        </div>
+       
+      </Swiper>
+          <GameList List={List} setList={setList}/>
+
     </div>
+    </>}
+    </div>
+    
   );
 }
 
-export default MainGameHome;
+export default ImageCarousel;
