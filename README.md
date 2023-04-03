@@ -1,4 +1,4 @@
- Price Warrior
+ Price Warrior by Arpit Gulati
 
 Progress Tracking
 
