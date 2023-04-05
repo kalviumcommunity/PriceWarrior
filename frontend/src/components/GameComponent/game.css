@@ -266,7 +266,18 @@
   max-height: 30%;
 }
 
+#more{
+  display: none;
+}
 
+#myBtn{
+  margin-top: 2rem;
+  color: var(--marigold);
+  cursor: pointer;
+}
+.name-div{
+  width: 33.3%;
+}
 
 .name-div h3 {
   word-wrap: break-word;
@@ -274,7 +285,8 @@
 .site-name {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  width: 33.3%;
   /* width: 101px; */
 }
 
@@ -334,7 +346,7 @@
 .game-description {
   margin-top: 2rem;
   background-color: grey;
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .some-detail-requirements {
@@ -380,6 +392,13 @@
   display: none;
 }
 
+@media(max-width:600px){
+  .price-container{
+    padding: 1rem;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+  }
+}
 @media (max-width: 1280px) {
   #max,
   #min,
@@ -507,7 +526,7 @@
   .site-name {
     margin-left: 2rem;
     margin-right: 2rem;
-    justify-content: center;
+    
   }
 }
 

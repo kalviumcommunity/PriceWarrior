@@ -275,6 +275,7 @@ function AdminForm() {
                   <input
                     placeholder="Name"
                     type="text"
+                    value={name}
                     onChange={(e) => setName(e.target.value)}
                   />
                 </div>
@@ -287,6 +288,7 @@ function AdminForm() {
                 <div className="admin-search-form">
                   <input
                     placeholder="Last Name"
+                    value={lastName}
                     type="text"
                     onChange={(e) => setLastName(e.target.value)}
                   />
@@ -298,9 +300,10 @@ function AdminForm() {
                 <label>
                   <h2>Home Genre </h2>
                 </label>
-                <div className="admin-search-form-2">
+                <div className="admin-search-form">
                   <input
                     placeholder="Genre For Home"
+                    value={homeGenre}
                     type="text"
                     onChange={(e) => setHomeGenre(e.target.value)}
                   />
@@ -312,27 +315,17 @@ function AdminForm() {
                   <label>
                     <h2>Home Image </h2>
                   </label>
-                  <div className="admin-search-form-2">
+                  <div className="admin-search-form">
                     <input
                       placeholder="Image for Home"
+                      value={homeImage}
                       type="text"
                       onChange={(e) => setHomeImage(e.target.value)}
                     />
                   </div>
                 </div>
 
-                <div className="each-labe-input">
-                  <label>
-                    <h2>Detail Image</h2>
-                  </label>
-                  <div className="admin-search-form-2">
-                    <input
-                      placeholder="Img for detail page"
-                      type="text"
-                      onChange={(e) => setDetailImage(e.target.value)}
-                    />
-                  </div>
-                </div>
+                
               </div>
             </div>
 
@@ -342,7 +335,10 @@ function AdminForm() {
                   <h2>Is Latest </h2>
                 </label>
                 <div className="select-admin-search-form">
-                  <select onChange={(e) => setIsLatest(e.target.value)}>
+                  <select
+                    value={isLatest}
+                    onChange={(e) => setIsLatest(e.target.value)}
+                  >
                     <option value="false">False</option>
                     <option value="true">True</option>
                   </select>
@@ -355,7 +351,10 @@ function AdminForm() {
                   <h2>Is Upcoming </h2>
                 </label>
                 <div className="select-admin-search-form">
-                  <select onChange={(e) => setIsUpcoming(e.target.value)}>
+                  <select
+                    value={isUpcoming}
+                    onChange={(e) => setIsUpcoming(e.target.value)}
+                  >
                     <option value="false">False</option>
                     <option value="true">True</option>
                   </select>
@@ -370,6 +369,7 @@ function AdminForm() {
                 <div className="admin-search-form">
                   <input
                     placeholder="Rating"
+                    value={rating}
                     type="number"
                     onChange={(e) => setRating(e.target.value)}
                   />
@@ -385,6 +385,7 @@ function AdminForm() {
                 <div className="admin-search-form">
                   <input
                     placeholder="Trailer Link"
+                    value={trailer}
                     type="text"
                     onChange={(e) => setTrailer(e.target.value)}
                   />
@@ -392,17 +393,40 @@ function AdminForm() {
               </div>
 
               <div className="each-labe-input">
+                  <label>
+                    <h2>Detail Image</h2>
+                  </label>
+                  <div className="admin-search-form">
+                    <input
+                      placeholder="Img for detail page"
+                      value={detailImage}
+                      type="text"
+                      onChange={(e) => setDetailImage(e.target.value)}
+                    />
+                  </div>
+                </div>
+
+              
+            </div>
+
+            <div className="input-div">
+            <div className="each-labe-input">
                 <label>
                   <h2>Description</h2>
                 </label>
-                <div className="admin-search-form">
-                  <input
+                <div className="admin-search-form-3">
+                  <textarea
                     placeholder="Description"
+                    value={description}
                     type="text"
                     onChange={(e) => setDescription(e.target.value)}
                   />
                 </div>
               </div>
+
+              
+
+              
             </div>
 
             <div className="input-div">
@@ -410,23 +434,26 @@ function AdminForm() {
                 <div className="each-labe-input">
                   <label>
                     <h2>Editions</h2>
-                    <h3
-                      style={{
-                        background: "white",
-                        borderRadius: "0.5rem",
-                        paddingLeft: "1rem",
-                        paddingRight: "1rem",
-                        width: "min-content",
-                        marginLeft: "1rem",
-                        display: "flex",
-                        alignItems: "center",
-                        cursor: "pointer",
-                        fontSize: "2rem",
-                      }}
-                      onClick={addEditions}
-                    >
-                      +
-                    </h3>
+                    <div style={{ display: "flex" }}>
+                      <h3
+                        style={{
+                          background: "white",
+                          borderRadius: "0.5rem",
+                          paddingLeft: "1rem",
+                          paddingRight: "1rem",
+                          width: "min-content",
+                          marginLeft: "1rem",
+                          display: "flex",
+                          alignItems: "center",
+                          cursor: "pointer",
+                          fontSize: "2rem",
+                        }}
+                        onClick={addEditions}
+                      >
+                        +
+                      </h3>
+                     
+                    </div>
                   </label>
                   {editions.map((edition, index) => {
                     return (
@@ -569,6 +596,7 @@ function AdminForm() {
                 <div className="admin-search-form-2">
                   <input
                     placeholder="Currently Minimum"
+                    value={currentMin}
                     type="text"
                     onChange={(e) => setCurrentMin(e.target.value)}
                   />
@@ -582,6 +610,7 @@ function AdminForm() {
                 <div className="admin-search-form-2">
                   <input
                     placeholder="Current Average"
+                    value={currentAvg}
                     type="text"
                     onChange={(e) => setCurrentAvg(e.target.value)}
                   />
@@ -596,6 +625,7 @@ function AdminForm() {
                   <input
                     placeholder="Current Maximum"
                     type="text"
+                    value={currentMax}
                     onChange={(e) => setCurrentMax(e.target.value)}
                   />
                 </div>
@@ -610,6 +640,7 @@ function AdminForm() {
                 <div className="admin-search-form-2">
                   <input
                     placeholder="Historically Minimum"
+                    value={historyMin}
                     type="text"
                     onChange={(e) => setHistoryMin(e.target.value)}
                   />
@@ -624,6 +655,7 @@ function AdminForm() {
                 <div className="admin-search-form-2">
                   <input
                     placeholder="Historically Average"
+                    value={historyAvg}
                     type="text"
                     onChange={(e) => setHistoryAvg(e.target.value)}
                   />
@@ -639,6 +671,7 @@ function AdminForm() {
                   <input
                     placeholder="Historically Maximum"
                     type="text"
+                    value={historyMax}
                     onChange={(e) => setHistoryMax(e.target.value)}
                   />
                 </div>
@@ -655,6 +688,7 @@ function AdminForm() {
                   <input
                     placeholder="Developer Name"
                     type="text"
+                    value={developer}
                     onChange={(e) => setDeveloper(e.target.value)}
                   />
                 </div>
@@ -668,6 +702,7 @@ function AdminForm() {
                   <input
                     placeholder="Publisher Name"
                     type="text"
+                    value={publisher}
                     onChange={(e) => setPublisher(e.target.value)}
                   />
                 </div>
@@ -681,6 +716,7 @@ function AdminForm() {
                   <input
                     placeholder="Release Date"
                     type="text"
+                    value={releaseDate}
                     onChange={(e) => setReleaseDate(e.target.value)}
                   />
                 </div>

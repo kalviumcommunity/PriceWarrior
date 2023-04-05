@@ -74,6 +74,24 @@ align-items: start;
   border-radius: 0.5rem;
 }
 
+.admin-search-form-3{
+  margin-top: 1rem;
+  width: 42vw;
+  /* min-height: 10rem; */
+  border: var(--border);
+  overflow: hidden;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  border-radius: 0.5rem;
+}
+
+.admin-search-form-3 textarea{
+  width: 100%;
+  min-height: 11vh;
+
+}
+
 .admin-search-form-2 {
   margin-top: 1rem;
   width: 13vw;

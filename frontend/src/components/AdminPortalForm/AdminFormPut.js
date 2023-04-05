@@ -337,7 +337,7 @@ function AdminFormPut() {
                 <label>
                   <h2>Home Genre </h2>
                 </label>
-                <div className="admin-search-form-2">
+                <div className="admin-search-form">
                   <input
                     placeholder="Genre For Home"
                     value={homeGenre}
@@ -352,7 +352,7 @@ function AdminFormPut() {
                   <label>
                     <h2>Home Image </h2>
                   </label>
-                  <div className="admin-search-form-2">
+                  <div className="admin-search-form">
                     <input
                       placeholder="Image for Home"
                       value={homeImage}
@@ -362,19 +362,7 @@ function AdminFormPut() {
                   </div>
                 </div>
 
-                <div className="each-labe-input">
-                  <label>
-                    <h2>Detail Image</h2>
-                  </label>
-                  <div className="admin-search-form-2">
-                    <input
-                      placeholder="Img for detail page"
-                      value={detailImage}
-                      type="text"
-                      onChange={(e) => setDetailImage(e.target.value)}
-                    />
-                  </div>
-                </div>
+                
               </div>
             </div>
 
@@ -442,11 +430,29 @@ function AdminFormPut() {
               </div>
 
               <div className="each-labe-input">
+                  <label>
+                    <h2>Detail Image</h2>
+                  </label>
+                  <div className="admin-search-form">
+                    <input
+                      placeholder="Img for detail page"
+                      value={detailImage}
+                      type="text"
+                      onChange={(e) => setDetailImage(e.target.value)}
+                    />
+                  </div>
+                </div>
+
+              
+            </div>
+
+            <div className="input-div">
+            <div className="each-labe-input">
                 <label>
                   <h2>Description</h2>
                 </label>
-                <div className="admin-search-form">
-                  <input
+                <div className="admin-search-form-3">
+                  <textarea
                     placeholder="Description"
                     value={description}
                     type="text"
@@ -454,6 +460,10 @@ function AdminFormPut() {
                   />
                 </div>
               </div>
+
+              
+
+              
             </div>
 
             <div className="input-div">
