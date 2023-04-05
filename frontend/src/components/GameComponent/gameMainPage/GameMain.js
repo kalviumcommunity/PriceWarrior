@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "../../HomeComponents/Home.css";
 import "./gameMain.css";
 import { Link } from "react-router-dom";
-import { MdDelete, MdEdit } from "react-icons/md";
+import { MdDelete, MdEdit, MdTrendingUp } from "react-icons/md";
 import { FaSearch } from "react-icons/fa";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const GameList = ({List, setList}) => {
-
 
   const [search, setSearch] = useState("");
 
   
   const { user, isAuthenticated } = useAuth0();
   const handleDelete = (id) => {
+    
     fetch(
       `${process.env.REACT_APP_DataBase_link_to_Access_data}/gameDelete/${id}`,
       {
@@ -38,7 +38,7 @@ const GameList = ({List, setList}) => {
   return (
     <div>
       <div className="outer-box">
-        {isAuthenticated && user.email === "arpit.gulati@kalvium.community" && (
+        {isAuthenticated && (user.email === "arpit.gulati@kalvium.community" || user.email === "kasinath.sg@kalvium.community") && (
           <div className="box">
             <input
               type="search"
@@ -61,9 +61,11 @@ const GameList = ({List, setList}) => {
                   <img className="game-page-cards-img" src={game.homeImage} />
 
                   {isAuthenticated &&
-                    user.email === "arpit.gulati@kalvium.community" && (
+                    (user.email === "arpit.gulati@kalvium.community" || user.email === "kasinath.sg@kalvium.community") && (
                       <div className="delete-edit">
-                        <div onClick={() => handleDelete(game._id)}>
+                        
+                        <div onClick={() => {if(window.confirm('Do you realy want to delete?')){handleDelete(game._id)}} }>
+                          
                           <MdDelete
                             style={{ color: "#fff", fontSize: "2.5rem" }}
                           />

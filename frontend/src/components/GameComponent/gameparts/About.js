@@ -15,6 +15,22 @@ function About({
   description,
   genres,
 }) {
+
+  const myFunction = ()=>{
+    let dots = document.getElementById("dots");
+  let moreText = document.getElementById("more");
+  let btnText = document.getElementById("myBtn");
+
+  if (dots.style.display === "none") {
+    dots.style.display = "inline";
+    btnText.innerHTML = "Read More⬇️"
+    moreText.style.display = "none";
+  } else {
+    dots.style.display = "none";
+    btnText.innerHTML = "Read Less⬆️";
+    moreText.style.display = "inline";
+  }
+  }
   return (
     <div>
       <div className="outermost-div">
@@ -89,11 +105,12 @@ function About({
             <h3
               className="h3"
               id="requirement-heading"
-              style={{ marginBottom: "1rem", color: "hsl(42, 99%, 46%)" }}
+              style={{ marginBottom: "1rem",marginLeft:'1rem', color: "hsl(42, 99%, 46%)" }}
             >
               Game Description
             </h3>
-            <p>{description} </p>
+            <p style={{whiteSpace:'pre-line'}}>{description.slice(0, 425) }<span id="dots">...</span> <span id="more">{description.slice(400,description.length)}</span> </p>
+            <h2 onClick={myFunction} id="myBtn">Read More⬇️</h2>
           </div>
         </div>
         <div className="qwer">
