@@ -36,7 +36,6 @@ mongoose.connect(process.env.MONGO_URI,{
 
 const aggregateGameGet = [
   {$sort:{"name":1}},
-  // {$sort:{"lastName":1}},
   { $project: {
     "isLatest":1,
     "isUpcoming":1,
@@ -50,7 +49,6 @@ const aggregateGameGet = [
 
 const aggregateGameMainGet = [
   {$sort:{"name":1}},
-  // {$sort:{"lastName":1}}
   { $project: {
     
     "name": 1,
