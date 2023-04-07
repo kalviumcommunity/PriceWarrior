@@ -10,6 +10,7 @@ import ig from "../../asseets/ig.png";
 import gamivo from "../../asseets/gamivo.png";
 import question from "../../asseets/question.png";
 import { FaWindows, FaPlaystation, FaXbox } from "react-icons/fa";
+import { useState } from "react";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
@@ -24,13 +25,21 @@ function Prices({
   releaseDate,
 }) {
   let img;
-  
+  const [count , setCount] = useState(7)
+  // const [arr, setArr] = useState([])
+  // setArr(prices.slice(0, 8))
 
+  const a = ()=>{
+    setCount(prices.length)
+    document.querySelector('.showAll-btn').style.display = 'none'
+  }
   return (
+    
     <div className="outermost-div">
       <div className="prices-outer-div">
         {prices
           .filter((e) => e.price !== "")
+          .slice(0,count)
           .map((e, index) => {
             if (e.site === "Steam") {
               img = steam;
@@ -53,6 +62,8 @@ function Prices({
             } else {
               img = question;
             }
+
+           
 
             const x = e.name.split(" ");
             console.log(x.size);
@@ -80,6 +91,10 @@ function Prices({
               </div>
             );
           })}
+          <div className="showAll-btn" onClick={a}>
+            <button>
+            Show All {prices.length} items
+            </button></div>
       </div>
 
       <div className="some-detail">

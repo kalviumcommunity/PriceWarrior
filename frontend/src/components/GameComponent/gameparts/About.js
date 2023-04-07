@@ -109,7 +109,7 @@ function About({
             >
               Game Description
             </h3>
-            <p style={{whiteSpace:'pre-line'}}>{description.slice(0, 425) }<span id="dots">...</span> <span id="more">{description.slice(400,description.length)}</span> </p>
+            <p style={{whiteSpace:'pre-line'}}>{description.slice(0, 425) }<span id="dots">...</span> <span id="more">{description.slice(425,description.length)}</span> </p>
             <h2 onClick={myFunction} id="myBtn">Read More⬇️</h2>
           </div>
         </div>

@@ -368,6 +368,19 @@
   /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
 }
 
+.showAll-btn{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.showAll-btn button{
+  background-color: #1a1637;
+  color: #fff;
+  padding: 0.7rem;
+  -webkit-text-stroke-width: 20%;
+}
+
 /* Then style the iframe to fit in the container div with full height and width */
 .responsive-iframe {
   position: absolute;
@@ -582,11 +595,12 @@
   }
 
   .outermost-div {
-    padding: 0rem;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
   }
 
   .price-container {
-    margin-bottom: 0rem;
-    border-bottom: 2px solid black;
+    margin-bottom: 1rem;
+    /* border-bottom: 2px solid black; */
   }
 }
