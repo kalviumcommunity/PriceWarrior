@@ -175,14 +175,14 @@ function Navbar({ mainRef }) {
               </a>
             </div>
             <div>
-              <a
-                href="#home"
+              <Link to={'/about'}
+                
                 className="navbar-links"
                 onMouseEnter={handleClick}
                 onMouseLeave={handleLeave}
               >
                 About Us
-              </a>
+              </Link>
             </div>
             {isAuthenticated &&
               (user.email === "arpit.gulati@kalvium.community" || user.email === "kasinath.sg@kalvium.community") && (
@@ -223,12 +223,14 @@ function Navbar({ mainRef }) {
         <Link to={"/games"}>
           <FaGamepad />
         </Link>
-        <a onClick={() => handleScroll(mainRef.current)} href="#arrivals">
+        <Link to={'/'}>
+        <a onClick={() => handleScroll(mainRef.current)}>
           <FaTags />
         </a>
-        <a href="#reviews">
+        </Link>
+        <Link to={'/about'}>
           <FcAbout />
-        </a>
+          </Link>
         
       </nav>
     </>
