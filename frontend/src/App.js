@@ -7,6 +7,7 @@ import Footer from "./components/Navbar&FooterComponent/Footer";
 import AdminForm from "./components/AdminPortalForm/AdminForm";
 import MainGameHome from "./components/GameComponent/gameMainPage/mainGameCarousel";
 import AdminFormPut from "./components/AdminPortalForm/AdminFormPut";
+import About from "./components/About Us/about";
 import { useEffect, useState } from "react";
 import { useRef } from "react";
 import axios from "axios";
@@ -49,6 +50,7 @@ function App() {
 
   <Route path={"/adminop"} element={<AdminForm />} />
   <Route path={"/adminopput/:id"} element={<AdminFormPut />} />
+  <Route path={"/about"} element={<About/>}/>
 </Routes>
 <Footer />
 </>
