@@ -76,11 +76,11 @@
 
 
 .gamefinal1 {
-  min-height: 100vh;
+  min-height: 60vh;
   background-color: #FEFCFE;
 }
 .gamefinal {
-  min-height: 100vh;
+  min-height: 60vh;
 }
 .price-route {
   cursor: pointer;
