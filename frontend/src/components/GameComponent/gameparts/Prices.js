@@ -86,7 +86,7 @@ function Prices({
                   <h3>{e.site}</h3>
                 </div>
                 <div>
-                  <h2 className="h3">Rs {e.price}</h2>
+                  <h2 className="h3">{e.price}</h2>
                 </div>
               </div>
             );
