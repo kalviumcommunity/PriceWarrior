@@ -9,6 +9,7 @@ import cd from "../../asseets/cd2.png";
 import ig from "../../asseets/ig.png";
 import gamivo from "../../asseets/gamivo.png";
 import question from "../../asseets/question.png";
+import xbox from '../../asseets/xbox.png'
 import { FaWindows, FaPlaystation, FaXbox } from "react-icons/fa";
 import { useState } from "react";
 
@@ -59,6 +60,9 @@ function Prices({
               img = ps;
             } else if (e.site === "DL Gamer") {
               img = dl;
+            }
+            else if(e.site ==="XBOX"){
+              img = xbox
             } else {
               img = question;
             }
