@@ -10,8 +10,10 @@ import ig from "../../asseets/ig.png";
 import gamivo from "../../asseets/gamivo.png";
 import question from "../../asseets/question.png";
 import xbox from '../../asseets/xbox.png'
+import nin from '../../asseets/nin.png'
 import { FaWindows, FaPlaystation, FaXbox } from "react-icons/fa";
 import { useState } from "react";
+
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
@@ -63,6 +65,9 @@ function Prices({
             }
             else if(e.site ==="XBOX"){
               img = xbox
+            }
+            else if(e.site ==="Nintando Switch"){
+              img = nin
             } else {
               img = question;
             }
@@ -97,7 +102,7 @@ function Prices({
           })}
           <div className="showAll-btn" onClick={a}>
             <button>
-            Show All {prices.length} items
+            Show All {prices.length} deals
             </button></div>
       </div>
 
