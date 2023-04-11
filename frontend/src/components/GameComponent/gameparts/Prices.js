@@ -9,8 +9,15 @@ import cd from "../../asseets/cd2.png";
 import ig from "../../asseets/ig.png";
 import gamivo from "../../asseets/gamivo.png";
 import question from "../../asseets/question.png";
+import xbox from '../../asseets/xbox.png'
+import nin from '../../asseets/nin.png'
+import ea from '../../asseets/ea.png'
+import ama from '../../asseets/ama.png'
+import game from '../../asseets/game.png'
+import flip from '../../asseets/flip.png'
 import { FaWindows, FaPlaystation, FaXbox } from "react-icons/fa";
 import { useState } from "react";
+
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
@@ -26,8 +33,7 @@ function Prices({
 }) {
   let img;
   const [count , setCount] = useState(7)
-  // const [arr, setArr] = useState([])
-  // setArr(prices.slice(0, 8))
+ 
 
   const a = ()=>{
     setCount(prices.length)
@@ -45,7 +51,7 @@ function Prices({
               img = steam;
             } else if (e.site === "Epic Games") {
               img = epic;
-            } else if (e.site === "CD keys") {
+            } else if (e.site === "CD Keys") {
               img = cd;
             } else if (e.site === "GreenMan Gaming") {
               img = greenman;
@@ -59,6 +65,21 @@ function Prices({
               img = ps;
             } else if (e.site === "DL Gamer") {
               img = dl;
+            }
+            else if(e.site ==="XBOX"){
+              img = xbox
+            }
+            else if(e.site ==="Nintando Switch"){
+              img = nin
+            }
+            else if(e.site==="EA Play"){
+              img = ea
+            }else if(e.site==="Amazon"){
+              img = ama
+            }else if(e.site==="Games the Shop"){
+              img = game
+            }else if(e.site==="Flipkart"){
+              img = flip
             } else {
               img = question;
             }
@@ -86,14 +107,14 @@ function Prices({
                   <h3>{e.site}</h3>
                 </div>
                 <div>
-                  <h2 className="h3">Rs {e.price}</h2>
+                  <h2 className="h3">{e.price}</h2>
                 </div>
               </div>
             );
           })}
           <div className="showAll-btn" onClick={a}>
             <button>
-            Show All {prices.length} items
+            Show All {prices.length} deals
             </button></div>
       </div>
 

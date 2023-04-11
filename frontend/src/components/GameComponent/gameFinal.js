@@ -32,7 +32,7 @@ function GameFinal() {
   
 
   return (
-    <div className="gamefinal">
+    <div className="gamefinal" >
       
     {loading ? (
       <div className="loading-ani">
@@ -41,7 +41,7 @@ function GameFinal() {
 
      </div>
     ):(
- <div className="gamefinal">
+ <div className="gamefinal" style={{backgroundColor: 'rgb(115 108 108)'}}>
  <Game
    name={gameData.name}
    lastName={gameData.lastName}

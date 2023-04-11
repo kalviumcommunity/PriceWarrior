@@ -73,10 +73,10 @@ function Navbar({ mainRef }) {
             <img className="logoPrice" src={logoPrice} />
           </div>
           <img id="logo-img" src={logo} />
-          <a href="#" className="logo" id="websiteName">
+          <Link to={'/'} className="logo" id="websiteName">
             {" "}
             Price Warrior{" "}
-          </a>
+          </Link>
 
           <form>
             <div>
