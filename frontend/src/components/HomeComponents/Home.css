@@ -47,7 +47,7 @@ h3 .span {
 .ul-scrollbar {
   list-style-type: none;
   display: flex;
-  gap: 30px;
+  gap: 65px;
   overflow-x: auto;
   padding-block-end: 30px;
   scroll-snap-type: x proximity;

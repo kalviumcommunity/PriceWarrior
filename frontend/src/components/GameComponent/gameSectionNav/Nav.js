@@ -29,9 +29,7 @@ function Nav({ setSelectedButton }) {
           <li className="nav-heading" onClick={handleClick}>
             About
           </li>
-          <li className="nav-heading" onClick={handleClick}>
-            SimilarGames
-          </li>
+         
         </ul>
       </nav>
     </div>
