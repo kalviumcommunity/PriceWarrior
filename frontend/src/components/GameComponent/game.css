@@ -596,7 +596,7 @@
 
   .outermost-div {
     padding: 0.5rem;
-    margin-bottom: 1rem;
+    padding-bottom: 1rem;
   }
 
   .price-container {
