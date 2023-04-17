@@ -11,7 +11,7 @@ import About from "./components/About Us/about";
 import { useEffect, useState } from "react";
 import { useRef } from "react";
 import axios from "axios";
-// import Image from '../src/components/demo/src/App.js'
+import ErrorPage from "./components/errorPage/ErrorPage";
 import loadin from '../src/components/asseets/loadinghd8.gif'
 function App() {
   const [data, setData] = useState([]);
@@ -51,6 +51,7 @@ function App() {
   <Route path={"/adminop"} element={<AdminForm />} />
   <Route path={"/adminopput/:id"} element={<AdminFormPut />} />
   <Route path={"/about"} element={<About/>}/>
+  <Route path='*' element={<ErrorPage />}/>
 </Routes>
 <Footer />
 </>
